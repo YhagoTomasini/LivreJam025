@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv64vryml8b5m"]
+[gd_scene load_steps=9 format=3 uid="uid://dv64vryml8b5m"]
 
 [ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b0xvsyyppr2be" path="res://Prefabs/golem.tscn" id="1_jjgbg"]
@@ -10,8 +10,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(1341, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(73.3333, 32.2222)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
-size = Vector2(79, 39)
+size = Vector2(81.1111, 41.1111)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bo1nx")
@@ -51,8 +54,14 @@ position = Vector2(186, 320)
 scale = Vector2(1.8, 1.8)
 script = ExtResource("3_8gbba")
 
+[node name="HitboxTextBox" type="StaticBody2D" parent="ColisorTextBox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisorTextBox/HitboxTextBox"]
+shape = SubResource("RectangleShape2D_kry3j")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisorTextBox"]
 shape = SubResource("RectangleShape2D_jjvhh")
+debug_color = Color(0, 1, 0.701961, 0.419608)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -64,6 +73,7 @@ offset_bottom = 40.0
 script = ExtResource("4_kry3j")
 
 [node name="TextBox" type="LineEdit" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = -59.0
 offset_top = -30.0
 offset_right = 61.0
