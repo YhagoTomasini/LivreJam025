@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dglmwp6g21ubc"]
 
 [ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_0kokh"]
-[ext_resource type="Script" uid="uid://cf4li8ja3fyep" path="res://Scripts/tiro_totem.gd" id="1_fvkh6"]
+[ext_resource type="Script" path="res://Scripts/tiro_totem.gd" id="1_fvkh6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fvkh6"]
 animations = [{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0xvsyyppr2be"]
+[gd_scene load_steps=5 format=3 uid="uid://b0xvsyyppr2be"]
 
 [ext_resource type="Script" uid="uid://cd342cd4cd725" path="res://Scripts/golem.gd" id="1_bs7yq"]
 
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqe5q"]
 radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31thp"]
+radius = 18.0
 
 [node name="Golem" type="CharacterBody2D"]
 collision_layer = 3
@@ -18,3 +21,10 @@ texture = SubResource("CanvasTexture_568nj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lqe5q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_31thp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

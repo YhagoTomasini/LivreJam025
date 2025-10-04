@@ -30,3 +30,8 @@ func _physics_process(delta: float) -> void:
 		var collision_p = get_slide_collision(plataforms)
 		if collision_p.get_collider().has_method("colidiu_com_algo"):
 			collision_p.get_collider().colidiu_com_algo(collision_p, self)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "tiro_totem":
+		get_tree().reload_current_scene()
