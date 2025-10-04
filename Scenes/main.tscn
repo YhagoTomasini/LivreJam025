@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b0xvsyyppr2be" path="res://Prefabs/golem.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://b6ftgsm6a3f8p" path="res://Scenes/colisor_text_box.gd" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://b5nx4oysbgg26" path="res://Scenes/control.gd" id="4_kry3j"]
+[ext_resource type="Script" path="res://Scenes/control.gd" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cgxqlq1ldgv6v" path="res://Prefabs/fall_plataform.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_plataform.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" path="res://Prefabs/totem_atirador.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://kjmn82yeideq" path="res://Scenes/moving_plataform.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://csmantk15jjj0" path="res://Prefabs/totem_atirador.tscn" id="7_6bp64"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bo1nx"]
 
