@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dglmwp6g21ubc"]
+[gd_scene load_steps=6 format=3 uid="uid://dglmwp6g21ubc"]
 
-[ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_0kokh"]
 [ext_resource type="Script" path="res://Scripts/tiro_totem.gd" id="1_fvkh6"]
+[ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_fvkh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cxo8"]
+atlas = ExtResource("2_fvkh6")
+region = Rect2(0, 136, 34, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fvkh6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0kokh")
+"texture": SubResource("AtlasTexture_1cxo8")
 }],
 "loop": true,
 "name": &"default",
@@ -15,18 +19,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cxo8"]
-radius = 5.0
-height = 48.0
+radius = 11.0
+height = 22.0
 
 [node name="tiro_totem" type="CharacterBody2D"]
 script = ExtResource("1_fvkh6")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.125, 0.414063)
+position = Vector2(0, -1)
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_fvkh6")
 
 [node name="colisao" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1cxo8")
 
