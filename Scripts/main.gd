@@ -22,6 +22,9 @@ func _on_text_box_text_submitted(new_text: String) -> void:
 	Globals.podeMover = true
 	textBox.release_focus()
 	print(Globals.podeMover)
+	
+	if new_text.strip_edges() != "":
+		Globals.VELO = float(new_text)
 
 
 func _on_text_box_text_changed(new_text: String) -> void:
