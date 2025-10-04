@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv64vryml8b5m"]
+
+[ext_resource type="PackedScene" uid="uid://c07poy1i5r48r" path="res://Golem.tscn" id="1_jjgbg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bo1nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(1274, 78)
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(550, 600.125)
+scale = Vector2(1151.5, 77.75)
+texture = SubResource("CanvasTexture_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(550, 600)
+shape = SubResource("RectangleShape2D_8gbba")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(170, 134)
