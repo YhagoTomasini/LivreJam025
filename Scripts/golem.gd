@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		#print(Globals.podeMover)
 		
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up") and is_on_floor():
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor() or Input.is_action_just_pressed("ui_up") and is_on_floor():
 			velocity.y = Globals.PULO
 
 		var direction := Input.get_axis("ui_left", "ui_right")
@@ -25,3 +25,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 
 	move_and_slide()
+	
+	for plataforms in get_slide_collision_count():
+		var collision_p = get_slide_collision(plataforms)
+		if collision_p.get_collider().has_method("colidiu_com_algo"):
+			collision_p.get_collider().colidiu_com_algo(collision_p, self)
