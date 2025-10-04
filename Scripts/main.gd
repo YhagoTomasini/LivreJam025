@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var textBox: LineEdit = $CanvasLayer/Control/TextBox
+@onready var textBox: LineEdit = $TextBox
+@onready var golem: CharacterBody2D = $Golem
 
 func _ready() -> void:
 	pass
@@ -25,6 +26,8 @@ func _on_text_box_text_submitted(new_text: String) -> void:
 	
 	if new_text.strip_edges() != "":
 		Globals.VELO = float(new_text)
+		golem.att_animVelo()
+		
 
 
 func _on_text_box_text_changed(new_text: String) -> void:
