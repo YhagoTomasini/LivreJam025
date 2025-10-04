@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var textBox: LineEdit = $CanvasLayer/TextBox
+@onready var textBox: LineEdit = $CanvasLayer/Control/TextBox
 
 func _ready() -> void:
 	pass
