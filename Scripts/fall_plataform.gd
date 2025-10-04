@@ -6,6 +6,7 @@ extends AnimatableBody2D
 @onready var respawn_timer: Timer = $respawn_timer
 @onready var posicao_do_spawn := global_position
 @onready var sprite: Sprite2D = $sprite
+@onready var sprites: Node2D = $Sprites
 
 @export var reset_timer := 3.0
 
@@ -69,7 +70,7 @@ func _on_respawn_timer_timeout() -> void:
 
 		var spawn_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
 
-		spawn_tween.tween_property($sprite,"scale", Vector2(1,1), 0.2).from(Vector2(0,0))
+		spawn_tween.tween_property($Sprites,"scale", Vector2(1,1), 0.2).from(Vector2(0,0))
 
 		is_trigger = false
 
