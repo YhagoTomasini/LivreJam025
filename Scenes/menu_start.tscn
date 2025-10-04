@@ -1,9 +1,32 @@
-[gd_scene format=3 uid="uid://wnqp5bfctn87"]
+[gd_scene load_steps=2 format=3 uid="uid://wnqp5bfctn87"]
+
+[ext_resource type="Script" uid="uid://c1hrmnngwyqgy" path="res://menu_start.gd" id="1_c1nyq"]
 
 [node name="MenuStart" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c1nyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -180.0
+offset_right = 180.0
+offset_bottom = 120.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Jogar"
+
+[node name="Creditos" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Créditos"
+
+[connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
