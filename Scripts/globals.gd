@@ -3,6 +3,7 @@ extends Node
 var VELO: float
 var PULO: float
 
+var noChao: bool
 var podeMover: bool
 
 func _ready() -> void:
