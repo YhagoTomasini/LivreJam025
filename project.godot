@@ -18,10 +18,6 @@ config/icon="res://Images/icon.svg"
 
 Globals="*res://Scripts/globals.gd"
 
-[display]
-
-window/stretch/mode="viewport"
-
 [input]
 
 ui_left={
