@@ -9,11 +9,16 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_text_box_editing_toggled(toggled_on: bool) -> void:
+
+func _on_text_box_focus_entered() -> void:
 	Globals.podeMover = false
+	print(Globals.podeMover)
+
+func _on_text_box_focus_exited() -> void:
+	Globals.podeMover = true
 	print(Globals.podeMover)
 
 func _on_text_box_text_submitted(new_text: String) -> void:
 	Globals.podeMover = true
-	_on_text_box_editing_toggled(false)
+	textBox.release_focus()
 	print(Globals.podeMover)
