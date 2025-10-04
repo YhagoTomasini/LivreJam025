@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73sgip1btp3l"]
+
+[ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_ynk4l"]
+[ext_resource type="Script" uid="uid://d3ogkvo5rf783" path="res://borboleta.gd" id="2_h7c0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tuf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ynk4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0p1h"]
+radius = 229.297
+
+[node name="Borboleta" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7tuf8")
+script = ExtResource("2_h7c0v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p0p1h")
+debug_color = Color(0.779274, 0.610695, 0.27122, 0.419608)
