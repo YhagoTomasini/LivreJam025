@@ -60,13 +60,11 @@ libraries = {
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="Sprites"]
-modulate = Color(0, 0.785196, 0.786732, 1)
 texture = ExtResource("2_p3s8d")
 region_enabled = true
 region_rect = Rect2(0, 48, 32, 32)
 
 [node name="sprite2" type="Sprite2D" parent="Sprites"]
-modulate = Color(0, 0.785196, 0.786732, 1)
 position = Vector2(16, 0)
 texture = ExtResource("2_p3s8d")
 region_enabled = true
