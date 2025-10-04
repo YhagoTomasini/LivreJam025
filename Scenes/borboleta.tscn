@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b73sgip1btp3l"]
 
 [ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_ynk4l"]
-[ext_resource type="Script" uid="uid://d3ogkvo5rf783" path="res://borboleta.gd" id="2_h7c0v"]
+[ext_resource type="Script" uid="uid://d3ogkvo5rf783" path="res://Scripts/borboleta.gd" id="2_h7c0v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7tuf8"]
 animations = [{

@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-func _ready() -> void:
-	pass
+@onready var anim: AnimatedSprite2D = $Sprite2D
+
+func att_animVelo() -> void:
+	anim.speed_scale = anim.speed_scale * (Globals.VELO/100)
 	
 func _physics_process(delta: float) -> void:
 	
@@ -18,11 +20,14 @@ func _physics_process(delta: float) -> void:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * Globals.VELO
+			anim.play("Anim")
 		else:
 			velocity.x = move_toward(velocity.x, 0, Globals.VELO)
+			anim.play("Idle")
 	
 	else:
 		velocity.x = 0
+		anim.play("Idle")
 
 	move_and_slide()
 	
