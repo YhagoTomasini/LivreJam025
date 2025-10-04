@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dglmwp6g21ubc"]
+[gd_scene load_steps=7 format=3 uid="uid://dglmwp6g21ubc"]
 
-[ext_resource type="Script" path="res://Scripts/tiro_totem.gd" id="1_fvkh6"]
+[ext_resource type="Script" uid="uid://cf4li8ja3fyep" path="res://Scripts/tiro_totem.gd" id="1_fvkh6"]
 [ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_fvkh6"]
+
+[sub_resource type="Gradient" id="Gradient_fvkh6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cxo8"]
+radius = 11.0
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cxo8"]
 atlas = ExtResource("2_fvkh6")
@@ -18,17 +25,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cxo8"]
-radius = 11.0
-height = 22.0
-
 [node name="tiro_totem" type="CharacterBody2D"]
 script = ExtResource("1_fvkh6")
 
-[node name="anim" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
-rotation = 3.14159
-sprite_frames = SubResource("SpriteFrames_fvkh6")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-4, 0)
+amount = 12
+lifetime = 2.0
+speed_scale = 3.0
+emission_shape = 1
+emission_sphere_radius = 11.2
+gravity = Vector2(-5, 0.3)
+color_ramp = SubResource("Gradient_fvkh6")
 
 [node name="colisao" type="CollisionShape2D" parent="."]
 position = Vector2(6, 0)
@@ -36,5 +44,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1cxo8")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_fvkh6")
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

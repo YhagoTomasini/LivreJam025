@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 		var deficit_factor = sqrt(player_speed_ratio)
 		Velo_escala = deficit_factor
 
-
-#if Globals.VELO != Globals.Velo_base:
-#		var player_speed_ratio = Globals.VELO / 300.0
-#		var deficit_factor = sqrt(player_speed_ratio)
-#		Globals.Velo_escala = deficit_factor 
+func reset_game():
+	VELO = Velo_base
+	get_tree().call_deferred("reload_current_scene")

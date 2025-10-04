@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-var velocidade_do_tiro := 50
+var velocidade_do_tiro := 70
 var direcao := 1 
 @onready var anim: AnimatedSprite2D = $anim
 
