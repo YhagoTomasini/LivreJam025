@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://csmantk15jjj0"]
+
+[ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_0a6g3"]
+[ext_resource type="Script" uid="uid://cu3rjoyn0sms2" path="res://Scripts/totem_atirador.gd" id="1_r3f1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3f1f"]
+size = Vector2(128, 128)
+
+[node name="totem_atirador" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_r3f1f")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("1_0a6g3")
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3f1f")
+
+[node name="spawn_do_tiro" type="Marker2D" parent="."]
+position = Vector2(30, 0)
+
+[node name="cd_tiro" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="timeout" from="cd_tiro" to="." method="_on_cd_tiro_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
