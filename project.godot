@@ -18,6 +18,11 @@ config/icon="res://Images/icon.svg"
 
 Globals="*res://Scripts/globals.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [input]
 
 ui_left={

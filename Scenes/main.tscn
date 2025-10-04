@@ -1,24 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv64vryml8b5m"]
+[gd_scene load_steps=5 format=3 uid="uid://dv64vryml8b5m"]
 
+[ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b0xvsyyppr2be" path="res://Scenes/golem.tscn" id="1_jjgbg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bo1nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
-size = Vector2(1274, 78)
+size = Vector2(1341, 78)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(673, 671)
+rotation = -1.57009
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 position = Vector2(550, 600.125)
 scale = Vector2(1151.5, 77.75)
 texture = SubResource("CanvasTexture_bo1nx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(550, 600)
 shape = SubResource("RectangleShape2D_8gbba")
 debug_color = Color(1, 0.6, 0.701961, 0.419608)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(148, 86)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(485.375, 600.125)
+scale = Vector2(1280.75, 77.75)
+texture = SubResource("CanvasTexture_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(516.5, 600)
+shape = SubResource("RectangleShape2D_8gbba")
+debug_color = Color(1, 0.6, 0.701961, 0.419608)
+
 [node name="Golem" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(148, 86)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextBox" type="LineEdit" parent="CanvasLayer"]
+offset_left = 517.0
+offset_top = 155.0
+offset_right = 585.563
+offset_bottom = 186.0
+placeholder_text = "000"
+alignment = 1
+max_length = 3
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="editing_toggled" from="CanvasLayer/TextBox" to="." method="_on_text_box_editing_toggled"]
+[connection signal="text_submitted" from="CanvasLayer/TextBox" to="." method="_on_text_box_text_submitted"]
