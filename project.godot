@@ -12,7 +12,15 @@ config_version=5
 
 config/name="LivreJam025"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Images/icon.svg"
+
+[autoload]
+
+Globals="*res://Scripts/globals.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [rendering]
 
