@@ -26,4 +26,6 @@ func _process(delta: float) -> void:
 
 func reset_game():
 	VELO = Velo_base
-	get_tree().call_deferred("reload_current_scene")
+	var cena_atual_caminho = get_tree().current_scene.scene_file_path
+	get_tree().call_deferred("change_scene_to_file", cena_atual_caminho)
+	
