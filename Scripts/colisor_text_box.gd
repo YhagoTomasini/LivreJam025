@@ -16,11 +16,9 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	emCima = true
-	Globals.podeMover = true
 	
 func _on_mouse_exited() -> void:
 	emCima = false
-	Globals.podeMover = true
 		
 	
 func _physics_process(delta: float) -> void:
@@ -34,7 +32,6 @@ func _physics_process(delta: float) -> void:
 			if diferenca != Vector2.ZERO:
 				global_position -= diferenca
 				hitboxText.disabled = true
-				Globals.podeMover = false
 			
 		else:
 			hitboxText.disabled = false
