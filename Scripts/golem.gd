@@ -6,7 +6,7 @@ var base_scale_x: float
 
 const air_friction := 0.5
 
-var altura_pulo := 200
+var altura_pulo := 170
 var pico_em := 0.5
 
 var gravidade

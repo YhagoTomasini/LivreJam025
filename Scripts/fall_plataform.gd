@@ -12,7 +12,7 @@ extends AnimatableBody2D
 var velocity = Vector2.ZERO
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_trigger = false
-var tempo_para_cair : float = 1
+var tempo_para_cair : float = 3
 var  INICIAL_tempo_para_cair : float = 0
 
 func _ready() -> void:
@@ -37,25 +37,13 @@ func colidiu_com_algo(collision: KinematicCollision2D, collider: CharacterBody2D
 
 		is_trigger = true
 
-#anim.play("shake")
+		anim.play("shake")
 
 		velocity = Vector2.ZERO
 
 		await get_tree().create_timer(tempo_para_cair).timeout
 
 		caiu()
-
-
-
-
-
-func _on_anim_animation_finished(anim_name: StringName) -> void:
-
-	set_physics_process(true)
-
-	respawn_timer.start(reset_timer)
-
-
 
 
 

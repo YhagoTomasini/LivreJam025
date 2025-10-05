@@ -11,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/sprite:position")
+tracks/0/path = NodePath("Sprites:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,10 +24,11 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_p3s8d"]
 resource_name = "shake"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/sprite:position")
+tracks/0/path = NodePath("Sprites:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,4 +73,3 @@ region_enabled = true
 region_rect = Rect2(192, 48, 32, 32)
 
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]
-[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
