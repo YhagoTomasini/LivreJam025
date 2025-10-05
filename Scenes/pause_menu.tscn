@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://rmmk0j81ims4"]
+[gd_scene load_steps=12 format=3 uid="uid://rmmk0j81ims4"]
 
 [ext_resource type="Script" uid="uid://1o682c7yeub7" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="Texture2D" uid="uid://dxajb1x0sv7ub" path="res://Images/b_pausa.png" id="2_bpi0q"]
+[ext_resource type="Texture2D" uid="uid://ddf2yu0iplnqq" path="res://Images/b_menu2.png" id="3_myy0f"]
+[ext_resource type="Texture2D" uid="uid://bbwm01yml7ndq" path="res://Images/b_menu1.png" id="3_vmyb1"]
+[ext_resource type="Texture2D" uid="uid://ievjnn2133on" path="res://Images/b_recomecar1.png" id="4_myy0f"]
+[ext_resource type="Texture2D" uid="uid://0gmyy36fayj3" path="res://Images/b_recomecar2.png" id="5_sjs17"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_ur6gg"]
 action = &"ui_focus_next"
@@ -10,9 +15,14 @@ events = [SubResource("InputEventAction_ur6gg")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ur6gg"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8tnp"]
+texture = ExtResource("3_myy0f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stj27"]
+texture = ExtResource("5_sjs17")
+
 [node name="pauseMenu" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_emv3i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -40,7 +50,9 @@ size_flags_vertical = 4
 [node name="resume_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_52pyj")
-text = "Resume"
+icon = ExtResource("2_bpi0q")
+flat = true
+icon_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -48,7 +60,21 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ur6gg")
 
 [node name="bm_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Back menu"
+theme_override_styles/hover = SubResource("StyleBoxTexture_u8tnp")
+icon = ExtResource("3_vmyb1")
+flat = true
+icon_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ur6gg")
+
+[node name="reiniciar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_stj27")
+icon = ExtResource("4_myy0f")
+flat = true
 
 [connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/bm_btn" to="." method="_on_bm_btn_pressed"]
+[connection signal="button_down" from="VBoxContainer/reiniciar" to="." method="_on_reiniciar_button_down"]
