@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $Sprite2D
-
+@onready var pause : CanvasLayer = $"../pauseMenu"
 var base_scale_x: float
 
 const air_friction := 0.5
@@ -75,3 +75,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("morte"):
 		Globals.reset_game()
+
+
+func _on_button_button_down() -> void:
+	pause.pausar()

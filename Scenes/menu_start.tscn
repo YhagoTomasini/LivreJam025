@@ -79,3 +79,4 @@ clip_text = true
 icon_alignment = 1
 
 [connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="VBoxContainer/Creditos" to="." method="_on_creditos_button_down"]
