@@ -5,6 +5,7 @@ const TIRO_TOTEM = preload("res://Prefabs/tiro_totem.tscn")
 @onready var spawn_do_tiro: Marker2D = $spawn_do_tiro
 @onready var sprite: Sprite2D = $sprite
 @onready var cd_tiro: Timer = $cd_tiro
+@onready var colisao: CollisionShape2D = $colisao
 
 # Constante para o tempo de recarga base (Ex: 0.5 segundo)
 const TEMPO_BASE_CD_TIRO := 1.5 
@@ -16,11 +17,13 @@ var ultima_escala_conhecida: float = 1.0
 
 
 func _ready() -> void:
+	colisao.disabled = true
 	# 1. Configura a direção do sprite
-	if para_direita:
-		sprite.flip_h = false
-	else:
-		sprite.flip_h = true
+	if !para_direita:
+		scale.x *= -1
+		#sprite.flip_h = false
+	#else:
+		#sprite.flip_h = true
 		
 	# 2. Inicializa o timer com o tempo base
 	cd_tiro.wait_time = TEMPO_BASE_CD_TIRO

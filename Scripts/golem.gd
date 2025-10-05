@@ -51,7 +51,6 @@ func _physics_process(delta: float) -> void:
 			collision_p.get_collider().colidiu_com_algo(collision_p, self)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "tiro_totem":
+func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.is_in_group("morte"):
 		Globals.reset_game()
-		

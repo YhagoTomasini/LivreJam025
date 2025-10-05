@@ -87,10 +87,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqe5q"]
-radius = 15.0
+radius = 21.0238
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31thp"]
-radius = 18.0
+radius = 30.0666
 
 [node name="Golem" type="CharacterBody2D"]
 collision_layer = 3
@@ -110,4 +110,4 @@ shape = SubResource("CircleShape2D_lqe5q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_31thp")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

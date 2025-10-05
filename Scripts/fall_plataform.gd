@@ -5,7 +5,6 @@ extends AnimatableBody2D
 @onready var anim: AnimationPlayer = $anim
 @onready var respawn_timer: Timer = $respawn_timer
 @onready var posicao_do_spawn := global_position
-@onready var sprite: Sprite2D = $sprite
 @onready var sprites: Node2D = $Sprites
 
 @export var reset_timer := 3.0
