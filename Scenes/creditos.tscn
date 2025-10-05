@@ -36,7 +36,7 @@ bbcode_enabled = true
 text = "[b]Game Title[/b]
 
 [b]By:[/b]
-Artêmio Neto, Tamires Eiko, Yhago Tomasini
+Artêmio Neto, Isabela Wagemaker, Yhago Tomasini
 
 _____________________________________________________________________________
 
@@ -49,53 +49,19 @@ Artêmio and Yhago
 Artêmio and Yhago  
 
 [b]Characters Design:[/b]
-Tamires  
+Isabela 
 
 [b]Environment Art:[/b]
-Tamires  
+Isabela 
 
 [b]UI/UX Design:[/b]
 All members  
 
 [b]Animation:[/b]
-Tamires  
+Isabela 
 
 [b]Writing & Narrative:[/b]
 All members  
-
-_____________________________________________________________________________
-
-[b]Sound and Music[/b]
-
-Spider's steps sound effect:  
-[url=https://pixabay.com/pt/users/voicebosch-30143949/]VoiceBosch[/url] on Pixabay  
-
-Web shoot sound effect:  
-[url=https://pixabay.com/pt/users/karim-nessim-40448081/]Karim-Nessim[/url] on Pixabay  
-
-Cocoon sound effect:  
-[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
-
-Toads sound effect:  
-[url=https://pixabay.com/pt/users/soundreality-31074404/]SoundReality[/url] on Pixabay  
-
-Toad tongue:  
-[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
-
-Pack Rat voice:  
-[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
-
-Berry's collect sound effect:  
-[url=https://pixabay.com/users/floraphonic-38928062/]floraphonic[/url] on Pixabay  
-
-Game music:
-[url=https://pixabay.com/users/teddybeast6-41120636/]teddybeast6[/url] on Pixabay
-
-Menu music:
-[url=https://pixabay.com/users/sergequadrado-24990007/]SergeQuadrado[/url] on Pixabay
-
-Credits music:  
-[url=https://pixabay.com/pt/users/matthewmikemusic-25386219/]matthewmikemusic[/url] on Pixabay  
 
 _____________________________________________________________________________
 
@@ -107,9 +73,9 @@ Godot Engine
 
 Aseprite
 
-Google Docs
+Clip Studio
 
-Pixabay sounds
+Google Docs
 
 Patience
 
@@ -146,7 +112,8 @@ Year of Release © 2025 – All Rights Reserved.
 
 _____________________________________________________________________________
 
-[b]THE END[/b]"
+[b]THE END[/b]
+"
 fit_content = true
 horizontal_alignment = 1
 
