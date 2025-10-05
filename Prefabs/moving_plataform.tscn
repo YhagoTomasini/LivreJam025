@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://kjmn82yeideq"]
+[gd_scene load_steps=4 format=3 uid="uid://ctjoft5vmgkko"]
 
 [ext_resource type="Script" uid="uid://bxl35w4dq5jfd" path="res://Scripts/moving_plataform.gd" id="1_1fixo"]
 [ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_3tkj6"]
@@ -7,6 +7,7 @@
 size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_1fixo")
 
 [node name="plataform" type="AnimatableBody2D" parent="."]

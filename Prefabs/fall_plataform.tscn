@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c65chuns8kujl"]
+[gd_scene load_steps=7 format=3 uid="uid://cgxqlq1ldgv6v"]
 
 [ext_resource type="Script" uid="uid://d3arucc2tku3i" path="res://Scripts/fall_plataform.gd" id="1_d7inl"]
 [ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_p3s8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcynr"]
-size = Vector2(62, 32)
+size = Vector2(64, 31)
 
 [sub_resource type="Animation" id="Animation_bf7tp"]
 length = 0.001
@@ -47,6 +47,7 @@ _data = {
 script = ExtResource("1_d7inl")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(16, -0.5)
 shape = SubResource("RectangleShape2D_pcynr")
 one_way_collision = true
 
@@ -65,7 +66,7 @@ region_enabled = true
 region_rect = Rect2(0, 48, 32, 32)
 
 [node name="sprite2" type="Sprite2D" parent="Sprites"]
-position = Vector2(16, 0)
+position = Vector2(32, 0)
 texture = ExtResource("2_p3s8d")
 region_enabled = true
 region_rect = Rect2(192, 48, 32, 32)

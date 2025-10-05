@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dml5bhpxc6nm0"]
 
-[ext_resource type="Script" uid="uid://djc14baf3cffl" path="res://Scripts/plataforma_suspensa.gd" id="1_33ki1"]
+[ext_resource type="Script" path="res://Scripts/plataforma_suspensa.gd" id="1_33ki1"]
 [ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_4p1ql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sc5iv"]
@@ -92,6 +92,7 @@ animation = &"3"
 
 [node name="CollisionIN" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_37i2l")
+one_way_collision = true
 
 [node name="Area1" type="Area2D" parent="."]
 collision_layer = 16

@@ -7,6 +7,7 @@
 size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_jjy2q")
 mov_horizontal = false
 
