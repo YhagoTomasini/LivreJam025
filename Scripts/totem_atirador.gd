@@ -6,8 +6,8 @@ const TIRO_TOTEM = preload("res://Prefabs/tiro_totem.tscn")
 @onready var sprite: Sprite2D = $sprite
 @onready var cd_tiro: Timer = $cd_tiro
 
-# Constante para o tempo de recarga base (Ex: 1.0 segundo)
-const TEMPO_BASE_CD_TIRO := 3.0 
+# Constante para o tempo de recarga base (Ex: 0.5 segundo)
+const TEMPO_BASE_CD_TIRO := 1.5 
 
 @export var para_direita : bool = true
 
@@ -78,6 +78,7 @@ func _on_visible_on_screen_enabler_2d_screen_entered() -> void:
 	# Reinicia o timer com o tempo ATUALIZADO (se for o caso)
 	# A função start() sempre usa o valor atual de wait_time.
 	cd_tiro.start() 
+	cd_tiro.paused = false
 
 func _on_cd_tiro_timeout() -> void:
 	spawn_tiro()

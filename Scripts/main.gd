@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var textBox: LineEdit = $TextBox
-@onready var golem: CharacterBody2D = $Golem
+@onready var golem: CharacterBody2D = $"../Golem"
 
 func _ready() -> void:
 	pass

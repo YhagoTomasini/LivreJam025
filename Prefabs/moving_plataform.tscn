@@ -1,23 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctjoft5vmgkko"]
+[gd_scene load_steps=4 format=3 uid="uid://kjmn82yeideq"]
 
 [ext_resource type="Script" uid="uid://bxl35w4dq5jfd" path="res://Scripts/moving_plataform.gd" id="1_1fixo"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_3tkj6"]
-specular_color = Color(0.72386, 0.000439241, 0.732487, 1)
+[ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_3tkj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpvej"]
-size = Vector2(32, 16)
+size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
 script = ExtResource("1_1fixo")
 
 [node name="plataform" type="AnimatableBody2D" parent="."]
-modulate = Color(1, 0.305882, 1, 1)
-
-[node name="sprite" type="Sprite2D" parent="plataform"]
-scale = Vector2(32, 16)
-texture = SubResource("CanvasTexture_3tkj6")
 
 [node name="collision" type="CollisionShape2D" parent="plataform"]
 shape = SubResource("RectangleShape2D_kpvej")
 one_way_collision = true
+
+[node name="sprites" type="Node2D" parent="plataform"]
+
+[node name="sprite" type="Sprite2D" parent="plataform/sprites"]
+position = Vector2(-47, 0)
+texture = ExtResource("2_3tkj6")
+region_enabled = true
+region_rect = Rect2(1, 352, 31, 32)
+
+[node name="sprite2" type="Sprite2D" parent="plataform/sprites"]
+position = Vector2(-16, 0)
+texture = ExtResource("2_3tkj6")
+region_enabled = true
+region_rect = Rect2(48, 352, 32, 32)
+
+[node name="sprite3" type="Sprite2D" parent="plataform/sprites"]
+position = Vector2(16, 0)
+texture = ExtResource("2_3tkj6")
+region_enabled = true
+region_rect = Rect2(144, 352, 32, 32)
+
+[node name="sprite4" type="Sprite2D" parent="plataform/sprites"]
+position = Vector2(47, 0)
+texture = ExtResource("2_3tkj6")
+region_enabled = true
+region_rect = Rect2(192, 352, 31, 32)

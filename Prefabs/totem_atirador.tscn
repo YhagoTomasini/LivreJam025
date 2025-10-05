@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://csmantk15jjj0"]
+[gd_scene load_steps=4 format=3 uid="uid://c10yirq0aw5ol"]
 
 [ext_resource type="Script" uid="uid://cu3rjoyn0sms2" path="res://Scripts/totem_atirador.gd" id="1_r3f1f"]
 [ext_resource type="Texture2D" uid="uid://dmpd1ucmxgv8e" path="res://Images/Totem.png" id="2_r3f1f"]
