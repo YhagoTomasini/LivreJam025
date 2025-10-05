@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ibu8wwjsus5c"]
+[gd_scene load_steps=7 format=3 uid="uid://ibu8wwjsus5c"]
 
 [ext_resource type="Script" uid="uid://b6ftgsm6a3f8p" path="res://Scripts/colisor_text_box.gd" id="1_s1vuu"]
 [ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_sdsba"]
 [ext_resource type="Script" uid="uid://b5nx4oysbgg26" path="res://Scripts/control.gd" id="2_sdsba"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jotv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(73.3333, 32.2222)
@@ -13,8 +15,11 @@ size = Vector2(81.1111, 41.1111)
 [node name="TextBox" type="Node2D"]
 script = ExtResource("1_sdsba")
 
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jotv8")
+
 [node name="ColisorTextBox" type="Area2D" parent="."]
-position = Vector2(-265, 170)
+position = Vector2(-1, 0)
 scale = Vector2(1.8, 1.8)
 collision_layer = 2
 collision_mask = 2
