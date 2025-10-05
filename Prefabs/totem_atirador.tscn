@@ -19,6 +19,7 @@ region_rect = Rect2(33, 14, 109, 239)
 
 [node name="colisao" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r3f1f")
+disabled = true
 
 [node name="spawn_do_tiro" type="Marker2D" parent="."]
 position = Vector2(38, 38)

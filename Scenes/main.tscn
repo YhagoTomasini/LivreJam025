@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b0xvsyyppr2be" path="res://Prefabs/golem.tscn" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://b6ftgsm6a3f8p" path="res://Scripts/colisor_text_box.gd" id="3_8gbba"]
+[ext_resource type="Script" path="res://Scenes/colisor_text_box.gd" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b5nx4oysbgg26" path="res://Scripts/control.gd" id="4_kry3j"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_plataform.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" path="res://Prefabs/totem_atirador.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://kjmn82yeideq" path="res://Scenes/moving_plataform.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://csmantk15jjj0" path="res://Prefabs/totem_atirador.tscn" id="7_6bp64"]
 [ext_resource type="Texture2D" uid="uid://87uggv1tvkjd" path="res://Images/tilemap_grama.png" id="8_344ge"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bo1nx"]
@@ -127,7 +127,7 @@ position = Vector2(644, 586)
 scale = Vector2(0.3, 0.3)
 
 [node name="totem_atirador" parent="." instance=ExtResource("7_6bp64")]
-position = Vector2(921, 522)
+position = Vector2(636, 240)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(200, -120)
@@ -139,6 +139,13 @@ layer_0/tile_data = PackedInt32Array(1245184, 65536, 1, 1245185, 65536, 1, 12451
 position = Vector2(101, 322)
 
 [node name="Camera2D" type="Camera2D" parent="Golem"]
+limit_left = -700
+limit_bottom = 600
+limit_smoothed = true
+drag_left_margin = 0.3
+drag_right_margin = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="ColisorTextBox" type="Area2D" parent="."]
 position = Vector2(-265, 170)
