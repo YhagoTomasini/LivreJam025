@@ -5,12 +5,14 @@ var speed: float = 2.0
 var base_y: float
 
 @onready var grupoCheckPoints : Node2D = $"../borboleta_Check_Points"
-var listaCheckPoints: Array[Vector2] = []
+@export var listaCheckPoints: Array[Vector2] = []
 var index_atual: int = 0
 var indo : bool
 var velo: float = 150.0
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
 	base_y = position.y
 	
 	for child in grupoCheckPoints.get_children():
@@ -19,32 +21,31 @@ func _ready() -> void:
 	if listaCheckPoints.size() > 0:
 		position = listaCheckPoints[0]
 	
-func _process(delta: float) -> void:
-	#var offset = sin(Time.get_ticks_msec() / 1000.0 * speed) * amplitude
-	#position.y = base_y + offset
-	
+func _process(delta: float) -> void:	
 	if indo and listaCheckPoints.size() > 0:
 		update_check_point(delta)
 	
 func update_check_point(delta : float):
+	if index_atual >= listaCheckPoints.size():
+		indo = false
+		return
+	
 	var destino = listaCheckPoints[index_atual]
 	var direcao = (destino - position).normalized()
 	var distancia = position.distance_to(destino)
 	
-	await get_tree().create_timer(0.1).timeout
-	
 	position += direcao * velo * delta
 	
-	await get_tree().create_timer(0.1).timeout
-	
-	if index_atual >= listaCheckPoints.size():
-		index_atual += 1
-		
-	else:
-		pass
-		
+	if distancia < 10.0:
+		position = destino
+		indo = false  # Para o movimento
+		print("Parou no ponto ", index_atual)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "golem":
-		indo = true
-		print(indo)
+	if body.name == "Golem" and !indo:
+		if index_atual < listaCheckPoints.size() - 1:
+			index_atual += 1
+			indo = true
+			print("Indo para ponto ", index_atual)
+		else:
+			pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv64vryml8b5m"]
+[gd_scene load_steps=17 format=3 uid="uid://dv64vryml8b5m"]
 
 [ext_resource type="PackedScene" uid="uid://b0xvsyyppr2be" path="res://Prefabs/golem.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://c65chuns8kujl" path="res://Prefabs/fall_plataform.tscn" id="2_21xkr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kjmn82yeideq" path="res://Prefabs/moving_plataform.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://dml5bhpxc6nm0" path="res://Prefabs/plataforma_suspensa.tscn" id="6_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://c10yirq0aw5ol" path="res://Prefabs/totem_atirador.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bfxubsv22m5db" path="res://Prefabs/moving_plataform_Cima.tscn" id="7_6iyac"]
 [ext_resource type="Texture2D" uid="uid://87uggv1tvkjd" path="res://Images/tilemap_grama.png" id="8_344ge"]
 [ext_resource type="PackedScene" uid="uid://bf5jyrsx7ojha" path="res://Prefabs/void.tscn" id="8_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://dcobvph0akni" path="res://Images/Background.png" id="9_hptm8"]
@@ -19,6 +20,7 @@ scenes/4/scene = ExtResource("6_21xkr")
 scenes/5/scene = ExtResource("2_21xkr")
 scenes/6/scene = ExtResource("5_344ge")
 scenes/7/scene = ExtResource("6_ynf5e")
+scenes/8/scene = ExtResource("7_6iyac")
 
 [sub_resource type="TileSet" id="TileSet_d1ilt"]
 tile_size = Vector2i(32, 32)
@@ -162,5 +164,5 @@ layer = -10
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 texture = ExtResource("9_hptm8")
 
-[connection signal="body_entered" from="TileMap_Obtaculos/Void" to="TileMap_Obtaculos/Void" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap_Obtaculos/@Area2D@170269" to="TileMap_Obtaculos/@Area2D@170269" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap_Obtaculos/@Area2D@206921" to="TileMap_Obtaculos/@Area2D@206921" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap_Obtaculos/@Area2D@206922" to="TileMap_Obtaculos/@Area2D@206922" method="_on_body_entered"]
