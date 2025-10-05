@@ -7,7 +7,7 @@ extends AnimatableBody2D
 @onready var posicao_do_spawn := global_position
 @onready var sprites: Node2D = $Sprites
 
-@export var reset_timer := 3.0
+@export var reset_timer := 1.5
 
 var velocity = Vector2.ZERO
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -21,11 +21,11 @@ func _ready() -> void:
 
 
 
-func _process(delta: float) -> void:
-	if Globals.VELO > Globals.Velo_base:
-		tempo_para_cair = tempo_para_cair / Globals.Velo_escala
-	else:
-		tempo_para_cair = INICIAL_tempo_para_cair
+#func _process(delta: float) -> void:
+	#if Globals.VELO > Globals.Velo_base:
+		#tempo_para_cair = tempo_para_cair / Globals.Velo_escala
+	#else:
+		#tempo_para_cair = INICIAL_tempo_para_cair
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta

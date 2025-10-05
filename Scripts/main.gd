@@ -27,6 +27,7 @@ func _on_text_box_text_submitted(new_text: String) -> void:
 	if new_text.strip_edges() != "":
 		Globals.VELO = float(new_text)
 		golem.att_animVelo()
+		Globals.calculando()
 		
 
 
