@@ -44,3 +44,5 @@ func _on_text_box_text_changed(new_text: String) -> void:
 	
 	textBox.set_text(digitos.to_upper())
 	textBox.caret_column = old_caret_column + diff
+	
+	
