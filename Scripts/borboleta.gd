@@ -1,14 +1,13 @@
 extends Node2D
 
 var amplitude: float = 10.0
-var speed: float = 2.0
 var base_y: float
 
 @onready var grupoCheckPoints : Node2D = $"../borboleta_Check_Points"
 @export var listaCheckPoints: Array[Vector2] = []
 var index_atual: int = 0
 var indo : bool
-var velo: float = 150.0
+var velo: float = 600.0
 
 var rotacao_velo := 5.0
 
