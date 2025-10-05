@@ -10,10 +10,13 @@ var index_atual: int = 0
 var indo : bool
 var velo: float = 150.0
 
+var rotacao_velo := 5.0
+
 func _ready() -> void:
 	await get_tree().process_frame
 	
 	base_y = position.y
+	rotation = deg_to_rad(33)
 	
 	for child in grupoCheckPoints.get_children():
 		listaCheckPoints.append(child.global_position)
@@ -35,6 +38,9 @@ func update_check_point(delta : float):
 	var distancia = position.distance_to(destino)
 	
 	position += direcao * velo * delta
+	
+	var angulo_destino = direcao.angle()
+	rotation = lerp_angle(rotation, angulo_destino, rotacao_velo * delta)
 	
 	if distancia < 10.0:
 		position = destino

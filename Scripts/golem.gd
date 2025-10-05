@@ -4,9 +4,22 @@ extends CharacterBody2D
 
 var base_scale_x: float
 
+const air_friction := 0.5
+
+var altura_pulo := 200
+var pico_em := 0.5
+
+var gravidade
+var fall_gravidade
+
+
 func _ready() -> void:
 	base_scale_x = anim.scale.x 
 	att_animVelo()
+	
+	Globals.PULO = (altura_pulo * 2) / pico_em
+	gravidade = (altura_pulo * 2) / pow(pico_em, 2)
+	fall_gravidade = gravidade * 2
 
 func att_animVelo() -> void:
 	anim.speed_scale = Globals.VELO/100
@@ -14,14 +27,19 @@ func att_animVelo() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		#velocity += get_gravity() * delta
+		velocity.x = 0
 		
 	if Globals.podeMover:
-		#print(Globals.podeMover)
-
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
-			velocity.y = Globals.PULO
+			velocity.y = -Globals.PULO
+			anim.play("Anim")
+		
+		if velocity.y > 0 or not Input.is_action_pressed("ui_up"):
+			velocity.y += fall_gravidade * delta
+		else:
+			velocity.y += gravidade * delta
 
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction < 0 and anim.scale.x == base_scale_x:
@@ -30,18 +48,21 @@ func _physics_process(delta: float) -> void:
 			anim.scale.x = base_scale_x
 			
 		if direction:
-			velocity.x = direction * Globals.VELO
-			anim.play("Anim")
+			velocity.x = lerp(velocity.x, direction * Globals.VELO, air_friction)
 		else:
 			velocity.x = move_toward(velocity.x, 0, Globals.VELO)
+		
+		if not is_on_floor():
+			anim.play("Anim")
+		elif abs(velocity.x) > 10:
+			anim.play("Anim")
+		else:
 			anim.play("Idle")
-	
 		
 	else:
 		velocity.x = 0
 		anim.play("Idle")
 		
-	
 
 	move_and_slide()
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0xvsyyppr2be"]
+[gd_scene load_steps=22 format=3 uid="uid://b0xvsyyppr2be"]
 
 [ext_resource type="Script" uid="uid://cd342cd4cd725" path="res://Scripts/golem.gd" id="1_bs7yq"]
 [ext_resource type="Texture2D" uid="uid://bvbicj6w3kekr" path="res://Images/Golem.png" id="2_mujqu"]
+[ext_resource type="Texture2D" uid="uid://c57l4sm14akeh" path="res://Images/GolemIDLE.png" id="3_syu0y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syu0y"]
 atlas = ExtResource("2_mujqu")
@@ -40,8 +41,28 @@ atlas = ExtResource("2_mujqu")
 region = Rect2(512, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h35wc"]
-atlas = ExtResource("2_mujqu")
+atlas = ExtResource("3_syu0y")
 region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omtfu"]
+atlas = ExtResource("3_syu0y")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peflf"]
+atlas = ExtResource("3_syu0y")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj3gb"]
+atlas = ExtResource("3_syu0y")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olikh"]
+atlas = ExtResource("3_syu0y")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2jus"]
+atlas = ExtResource("3_syu0y")
+region = Rect2(512, 256, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omtfu"]
 animations = [{
@@ -80,10 +101,25 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h35wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omtfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peflf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj3gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2jus")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqe5q"]
@@ -101,6 +137,7 @@ script = ExtResource("1_bs7yq")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_omtfu")
 animation = &"Idle"
+frame_progress = 0.887637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lqe5q")
