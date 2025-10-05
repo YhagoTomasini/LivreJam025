@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpqq5jsasdxle"]
+
+[ext_resource type="Script" uid="uid://d2n7nvj0vs5sg" path="res://Scripts/tela_creditos.gd" id="1_3an4w"]
+
+[node name="ScrollContainer" type="ScrollContainer" node_paths=PackedStringArray("text_node")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_3an4w")
+text_node = NodePath("MarginContainer/RichTextLabel")
+vel = 2.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 720
+theme_override_constants/margin_bottom = 7200
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Title
+Studio/Team Name: [Insert Team or Studio Name]
+
+Team
+
+ Game Design: [Insert Name(s)]
+ Programming: [Insert Name(s)]
+ Character Design: [Insert Name(s)]
+ Environment Art: [Insert Name(s)]
+ UI/UX Design: [Insert Name]
+ Animation: [Insert Name(s)]
+ Sound Design: [Insert Name]
+ Writing & Narrative: [Insert Name]
+
+Tools & Technologies
+Made with:
+Godot Engine;
+Aseprite;
+Patience;
+Maternal love;
+Google docs
+
+Special Thanks
+My mom;
+My dad;
+Rebecca sugar;
+Gamelab
+Our son
+
+
+You, for playing this game!
+
+
+
+Year of Release
+© 2025 – All Rights Reserved."
+fit_content = true
+horizontal_alignment = 1

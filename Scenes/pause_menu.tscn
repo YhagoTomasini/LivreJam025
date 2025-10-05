@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://rmmk0j81ims4"]
+
+[ext_resource type="Script" uid="uid://1o682c7yeub7" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ur6gg"]
+action = &"ui_focus_next"
+
+[sub_resource type="Shortcut" id="Shortcut_52pyj"]
+events = [SubResource("InputEventAction_ur6gg")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ur6gg"]
+
+[node name="pauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_emv3i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.185981, 0.185981, 0.185981, 0.498039)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -44.0
+offset_right = 84.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="resume_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_52pyj")
+text = "Resume"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ur6gg")
+
+[node name="bm_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back menu"
+
+[connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/bm_btn" to="." method="_on_bm_btn_pressed"]

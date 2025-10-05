@@ -1,0 +1,154 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgq0nusfchcbi"]
+
+[ext_resource type="Script" uid="uid://vnys6lk2lghq" path="res://Scripts/tela_creditos.gd" id="1_ykkye"]
+[ext_resource type="PackedScene" uid="uid://rmmk0j81ims4" path="res://Scenes/pause_menu.tscn" id="2_ompal"]
+
+[node name="Creditos" type="Control" node_paths=PackedStringArray("text_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykkye")
+text_node = NodePath("ScrollContainer/MarginContainer/RichTextLabel")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 720
+theme_override_constants/margin_bottom = 720
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Game Title[/b]
+
+[b]By:[/b]
+Artêmio Neto, Tamires Eiko, Yhago Tomasini
+
+_____________________________________________________________________________
+
+[b]Team[/b]
+
+[b]Game Design:[/b]
+Artêmio and Yhago  
+
+[b]Programming:[/b]
+Artêmio and Yhago  
+
+[b]Characters Design:[/b]
+Tamires  
+
+[b]Environment Art:[/b]
+Tamires  
+
+[b]UI/UX Design:[/b]
+All members  
+
+[b]Animation:[/b]
+Tamires  
+
+[b]Writing & Narrative:[/b]
+All members  
+
+_____________________________________________________________________________
+
+[b]Sound and Music[/b]
+
+Spider's steps sound effect:  
+[url=https://pixabay.com/pt/users/voicebosch-30143949/]VoiceBosch[/url] on Pixabay  
+
+Web shoot sound effect:  
+[url=https://pixabay.com/pt/users/karim-nessim-40448081/]Karim-Nessim[/url] on Pixabay  
+
+Cocoon sound effect:  
+[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
+
+Toads sound effect:  
+[url=https://pixabay.com/pt/users/soundreality-31074404/]SoundReality[/url] on Pixabay  
+
+Toad tongue:  
+[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
+
+Pack Rat voice:  
+[url=https://pixabay.com/pt/users/freesound_community-46691455/]freesound_community[/url] on Pixabay  
+
+Berry's collect sound effect:  
+[url=https://pixabay.com/users/floraphonic-38928062/]floraphonic[/url] on Pixabay  
+
+Game music:
+[url=https://pixabay.com/users/teddybeast6-41120636/]teddybeast6[/url] on Pixabay
+
+Menu music:
+[url=https://pixabay.com/users/sergequadrado-24990007/]SergeQuadrado[/url] on Pixabay
+
+Credits music:  
+[url=https://pixabay.com/pt/users/matthewmikemusic-25386219/]matthewmikemusic[/url] on Pixabay  
+
+_____________________________________________________________________________
+
+[b]Tools & Technologies[/b]
+
+Made with:  
+[b]
+Godot Engine
+
+Aseprite
+
+Google Docs
+
+Pixabay sounds
+
+Patience
+
+Maternal love
+
+Pain
+
+Suffering
+
+More pain
+
+More suffering
+[/b]
+
+_____________________________________________________________________________
+
+[b]Special Thanks[/b]
+
+My mom  
+
+My dad  
+
+Rebecca Sugar  
+
+Gamelab  
+
+Sophia Jorge  
+
+[b]You, for playing this game![/b]
+
+_____________________________________________________________________________
+
+Year of Release © 2025 – All Rights Reserved.
+
+_____________________________________________________________________________
+
+[b]THE END[/b]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="pauseMenu" parent="." instance=ExtResource("2_ompal")]
+visible = true

@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Node2D
 
 var amplitude: float = 10.0
 var speed: float = 2.0
