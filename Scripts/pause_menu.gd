@@ -28,10 +28,12 @@ func _on_resume_btn_pressed() -> void:
 	pausa()
 
 func _on_bm_btn_pressed() -> void:
+	Globals.VELO = 300
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/menu_start.tscn")
 
 
 func _on_reiniciar_button_down() -> void:
+	Globals.VELO = 300
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
