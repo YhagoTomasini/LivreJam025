@@ -7,10 +7,10 @@ extends CharacterBody2D
 
 var base_scale_x: float
 
-const air_friction := 0.5
+const air_friction := 0.65
 
-var altura_pulo := 170
-var pico_em := 0.5
+var altura_pulo := 135
+var pico_em := 0.4
 
 var can_jump := true
 

@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctjoft5vmgkko"]
+[gd_scene load_steps=4 format=3 uid="uid://dtxna1dg82ae3"]
 
-[ext_resource type="Script" uid="uid://bxl35w4dq5jfd" path="res://Scripts/moving_plataform.gd" id="1_1fixo"]
-[ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_3tkj6"]
+[ext_resource type="Script" uid="uid://bxl35w4dq5jfd" path="res://Scripts/moving_plataform.gd" id="1_0y0bp"]
+[ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_2ojfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpvej"]
 size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
-script = ExtResource("1_1fixo")
+script = ExtResource("1_0y0bp")
+distancia = -256.0
+mov_horizontal = false
 
 [node name="plataform" type="AnimatableBody2D" parent="."]
 
@@ -19,24 +21,24 @@ one_way_collision = true
 
 [node name="sprite" type="Sprite2D" parent="plataform/sprites"]
 position = Vector2(-47, 0)
-texture = ExtResource("2_3tkj6")
+texture = ExtResource("2_2ojfq")
 region_enabled = true
 region_rect = Rect2(1, 352, 31, 32)
 
 [node name="sprite2" type="Sprite2D" parent="plataform/sprites"]
 position = Vector2(-16, 0)
-texture = ExtResource("2_3tkj6")
+texture = ExtResource("2_2ojfq")
 region_enabled = true
 region_rect = Rect2(48, 352, 32, 32)
 
 [node name="sprite3" type="Sprite2D" parent="plataform/sprites"]
 position = Vector2(16, 0)
-texture = ExtResource("2_3tkj6")
+texture = ExtResource("2_2ojfq")
 region_enabled = true
 region_rect = Rect2(144, 352, 32, 32)
 
 [node name="sprite4" type="Sprite2D" parent="plataform/sprites"]
 position = Vector2(47, 0)
-texture = ExtResource("2_3tkj6")
+texture = ExtResource("2_2ojfq")
 region_enabled = true
 region_rect = Rect2(192, 352, 31, 32)

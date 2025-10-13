@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgxqlq1ldgv6v"]
 
-[ext_resource type="Script" uid="uid://d3arucc2tku3i" path="res://Scripts/fall_plataform.gd" id="1_d7inl"]
+[ext_resource type="Script" path="res://Scripts/fall_plataform.gd" id="1_d7inl"]
 [ext_resource type="Texture2D" uid="uid://bf2j47mdpqdbm" path="res://Images/UntitledArtwork1.png" id="2_p3s8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcynr"]
@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="fall_plataform" type="AnimatableBody2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_d7inl")
 
 [node name="collision" type="CollisionShape2D" parent="."]

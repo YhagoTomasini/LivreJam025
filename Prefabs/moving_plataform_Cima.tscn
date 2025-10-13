@@ -7,8 +7,8 @@
 size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
-scale = Vector2(0.8, 0.8)
 script = ExtResource("1_jjy2q")
+distancia = 256.0
 mov_horizontal = false
 
 [node name="plataform" type="AnimatableBody2D" parent="."]
