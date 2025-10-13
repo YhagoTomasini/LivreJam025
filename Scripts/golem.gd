@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $Sprite2D
 @onready var pause : CanvasLayer = $"../pauseMenu"
 @onready var coyote_timer: Timer = $coyote_timer
+@onready var spawn_inicial: Marker2D = $"../spawn_inicial"
 
 var base_scale_x: float
 
@@ -84,7 +85,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("morte"):
-		Globals.reset_game()
+		#Globals.reset_game()
+		if Globals.current_checkpoint != null:
+			global_position = Globals.current_checkpoint.position
+		else:
+			global_position = spawn_inicial.position
 
 
 func _on_button_button_down() -> void:

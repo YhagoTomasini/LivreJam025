@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbio8gk4kpfwp"]
+
+[ext_resource type="Texture2D" uid="uid://chmpb6fx3x1w7" path="res://Images/icon.svg" id="1_ayo4p"]
+[ext_resource type="Script" uid="uid://clmfvy2bx1pkg" path="res://Scripts/checkpoint.gd" id="1_q88ch"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f15cb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"cheked",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"raising",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ayo4p")
+}],
+"loop": true,
+"name": &"uncheked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayo4p"]
+size = Vector2(120, 123)
+
+[node name="checkpoint" type="Area2D"]
+script = ExtResource("1_q88ch")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f15cb")
+animation = &"uncheked"
+autoplay = "uncheked"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ayo4p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

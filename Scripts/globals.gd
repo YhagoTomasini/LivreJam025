@@ -1,16 +1,17 @@
 extends Node
 
- 
-
 var VELO: float
 var PULO: float
 
 var Velo_base : float 
 var Velo_escala : float
 
-
 var noChao: bool
 var podeMover: bool
+
+var player = null
+var current_checkpoint = null
+
 
 func _ready() -> void:
 	Globals.VELO = 300
@@ -18,6 +19,9 @@ func _ready() -> void:
 	Globals.podeMover = true
 	Velo_base = VELO
 
+func respawn_player():
+	if current_checkpoint != null:
+		player.position = current_checkpoint.global_position
 
 func reset_game():
 	VELO = Velo_base
