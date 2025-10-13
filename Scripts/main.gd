@@ -8,6 +8,7 @@ var emCima: bool
 var posiMouse := Vector2.ZERO
 var diferenca : Vector2
 @onready var hitboxText : CollisionShape2D = $ColisorTextBox/HitboxTextBox/textboxcollision
+@onready var timerSegs : Timer = $Timer
 
 var semMover: bool
 var podeClick: bool
@@ -18,28 +19,21 @@ var old_parent
 func _ready() -> void:
 	self_node = self
 	old_parent = self_node.get_parent()
-	
+		
 	await get_tree().create_timer(0.1).timeout
-	old_parent.remove_child(self_node)
-	#await get_tree().create_timer(0.1).timeout
-	canva.add_child(self_node)
-	
-	self_node.position = Vector2(120, 120)
+	voltar_HUD()
 	
 	semMover = true
 	podeClick = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
-		old_parent.remove_child(self_node)
-		canva.add_child(self_node)
-		self_node.position = Vector2(120, 120)
-		print("down")
+		voltar_HUD()
 		
 	if emCima and Input.is_action_just_pressed("click"):
 		diferenca = get_global_mouse_position() - global_position
 		podeClick = true
-		
+	
 	if podeClick:
 		if Input.is_action_pressed("click"):
 			canva.remove_child(self_node)
@@ -52,7 +46,14 @@ func _process(delta: float) -> void:
 			hitboxText.disabled = false
 			podeClick = false
 
-	posiMouse = get_global_mouse_position()
+		posiMouse = get_global_mouse_position()
+		
+		
+func voltar_HUD():
+	old_parent.remove_child(self_node)
+	canva.add_child(self_node)
+	self_node.position = Vector2(120, 120)
+	print("down")
 #___________________________________________________________________________________#
 
 func _on_text_box_focus_entered() -> void:
@@ -95,3 +96,16 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	emCima = false
+
+#___________________________________________________________________________________#
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	print("Saiu da tela, iniciando contagem para voltar HUD")
+	timerSegs.start()
+
+func _on_visible_on_screen_enabler_2d_screen_entered() -> void:
+	timerSegs.stop()
+	print("Caixa voltou a aparecer, cancelando retorno")
+
+func _on_timer_timeout() -> void:
+	voltar_HUD()
