@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ibu8wwjsus5c"]
+[gd_scene load_steps=4 format=3 uid="uid://ibu8wwjsus5c"]
 
 [ext_resource type="Script" uid="uid://hnnedxkee0th" path="res://Scripts/main.gd" id="1_sdsba"]
 [ext_resource type="Script" uid="uid://b5nx4oysbgg26" path="res://Scripts/control.gd" id="2_sdsba"]
 [ext_resource type="Texture2D" uid="uid://b8733xehcr5w6" path="res://Images/caixapng.png" id="4_nty0g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
-size = Vector2(92, 32.1111)
 
 [node name="TextBox" type="Node2D"]
 script = ExtResource("1_sdsba")
@@ -26,9 +23,9 @@ texture = ExtResource("4_nty0g")
 collision_layer = 2
 collision_mask = 2
 
-[node name="textboxcollision" type="CollisionShape2D" parent="ColisorTextBox/HitboxTextBox" groups=["chaos"]]
-position = Vector2(1, 1.05555)
-shape = SubResource("RectangleShape2D_kry3j")
+[node name="polygonsahpe2" type="CollisionPolygon2D" parent="ColisorTextBox/HitboxTextBox" groups=["chaos"]]
+position = Vector2(1, 1)
+polygon = PackedVector2Array(61, 31, 61, -31, -61, -31, -47, -17, 47, -17, 47, 17, -47, 17, -47, -17, -61, -31, -61, 31)
 
 [node name="polygonsahpe" type="CollisionPolygon2D" parent="ColisorTextBox"]
 position = Vector2(1, 1)

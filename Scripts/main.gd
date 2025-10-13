@@ -7,7 +7,7 @@ extends Node2D
 var emCima: bool
 var posiMouse := Vector2.ZERO
 var diferenca : Vector2
-@onready var hitboxText : CollisionShape2D = $ColisorTextBox/HitboxTextBox/textboxcollision
+@onready var hitboxText : CollisionPolygon2D = $ColisorTextBox/HitboxTextBox/polygonsahpe2
 @onready var timerSegs : Timer = $Timer
 
 var semMover: bool
