@@ -1,28 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://wnqp5bfctn87"]
+[gd_scene load_steps=5 format=3 uid="uid://wnqp5bfctn87"]
 
 [ext_resource type="Script" uid="uid://c1hrmnngwyqgy" path="res://Scripts/menu_start.gd" id="1_c1nyq"]
 [ext_resource type="Texture2D" uid="uid://cn8g36d3t2t3y" path="res://Images/capa.png" id="2_sko71"]
-[ext_resource type="Texture2D" uid="uid://c7ryv18ayo1ot" path="res://Images/b_jogar2.png" id="3_kihoa"]
-[ext_resource type="Texture2D" uid="uid://crkdc7xq61xmd" path="res://Images/b_jogar1.png" id="3_rv1rd"]
-[ext_resource type="Texture2D" uid="uid://ljpw1kqvirec" path="res://Images/b_creditos1.png" id="4_kihoa"]
-[ext_resource type="Texture2D" uid="uid://bo2cqov2wxfra" path="res://Images/b_creditos2.png" id="5_ewygo"]
-
-[sub_resource type="Theme" id="Theme_xplyj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifbbq"]
-texture = ExtResource("3_kihoa")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kihoa"]
-texture = ExtResource("5_ewygo")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewygo"]
-texture = ExtResource("5_ewygo")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xplyj"]
-texture = ExtResource("5_ewygo")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5iwg"]
-texture = ExtResource("5_ewygo")
+[ext_resource type="Theme" uid="uid://critji4ed6r0q" path="res://temas_B/B_Jogar.tres" id="3_kihoa"]
+[ext_resource type="Theme" uid="uid://bkmt88e00mpy4" path="res://temas_B/B_Credits.tres" id="4_sko71"]
 
 [node name="MenuStart" type="Control"]
 layout_mode = 3
@@ -57,24 +38,19 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Play" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(240, 120)
 layout_mode = 2
-size_flags_vertical = 3
-theme = SubResource("Theme_xplyj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ifbbq")
-icon = ExtResource("3_rv1rd")
-flat = true
-clip_text = true
+size_flags_horizontal = 4
+theme = ExtResource("3_kihoa")
 icon_alignment = 1
 
 [node name="Creditos" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(322, 120)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_kihoa")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ewygo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_xplyj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_s5iwg")
-icon = ExtResource("4_kihoa")
-flat = true
+theme = ExtResource("4_sko71")
 clip_text = true
 icon_alignment = 1
 
