@@ -19,7 +19,9 @@ func _ready() -> void:
 	self_node = self
 	old_parent = self_node.get_parent()
 	
+	await get_tree().create_timer(0.1).timeout
 	old_parent.remove_child(self_node)
+	#await get_tree().create_timer(0.1).timeout
 	canva.add_child(self_node)
 	
 	self_node.position = Vector2(120, 120)
@@ -28,6 +30,12 @@ func _ready() -> void:
 	podeClick = false
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_down"):
+		old_parent.remove_child(self_node)
+		canva.add_child(self_node)
+		self_node.position = Vector2(120, 120)
+		print("down")
+		
 	diferenca = posiMouse - get_global_mouse_position()
 	
 	if emCima:
@@ -35,6 +43,9 @@ func _process(delta: float) -> void:
 	
 	if podeClick:
 		if Input.is_action_pressed("click"):
+			canva.remove_child(self_node)
+			old_parent.add_child(self_node)
+			
 			if diferenca != Vector2.ZERO:
 				global_position -= diferenca
 				hitboxText.disabled = true
@@ -81,6 +92,7 @@ func _on_text_box_text_changed(new_text: String) -> void:
 	textBox.caret_column = old_caret_column + diff
 	
 #___________________________________________________________________________________#
+
 func _on_colisor_text_box_mouse_entered() -> void:
 	emCima = true
 
