@@ -7,7 +7,7 @@ extends Node2D
 var emCima: bool
 var posiMouse := Vector2.ZERO
 var diferenca : Vector2
-@onready var hitboxText : CollisionShape2D = $ColisorTextBox/HitboxTextBox/CollisionShape2D
+@onready var hitboxText : CollisionShape2D = $ColisorTextBox/HitboxTextBox/textboxcollision
 
 var semMover: bool
 var podeClick: bool
@@ -36,26 +36,23 @@ func _process(delta: float) -> void:
 		self_node.position = Vector2(120, 120)
 		print("down")
 		
-	diferenca = posiMouse - get_global_mouse_position()
-	
-	if emCima:
+	if emCima and Input.is_action_just_pressed("click"):
+		diferenca = get_global_mouse_position() - global_position
 		podeClick = true
-	
+		
 	if podeClick:
 		if Input.is_action_pressed("click"):
 			canva.remove_child(self_node)
 			old_parent.add_child(self_node)
 			
-			if diferenca != Vector2.ZERO:
-				global_position -= diferenca
-				hitboxText.disabled = true
+			global_position = get_global_mouse_position() - diferenca
+			hitboxText.disabled = true
 			
 		else:
 			hitboxText.disabled = false
 			podeClick = false
-		
-	posiMouse = get_global_mouse_position()
 
+	posiMouse = get_global_mouse_position()
 #___________________________________________________________________________________#
 
 func _on_text_box_focus_entered() -> void:
@@ -93,8 +90,8 @@ func _on_text_box_text_changed(new_text: String) -> void:
 	
 #___________________________________________________________________________________#
 
-func _on_colisor_text_box_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	emCima = true
 
-func _on_colisor_text_box_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	emCima = false
