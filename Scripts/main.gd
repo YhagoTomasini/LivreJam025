@@ -36,8 +36,9 @@ func _process(delta: float) -> void:
 	
 	if podeClick:
 		if Input.is_action_pressed("click"):
-			canva.remove_child(self_node)
-			old_parent.add_child(self_node)
+			if self_node.get_parent() == canva:
+				canva.remove_child(self_node)
+				old_parent.add_child(self_node)
 			
 			global_position = get_global_mouse_position() - diferenca
 			hitboxText.disabled = true
@@ -54,6 +55,7 @@ func voltar_HUD():
 	canva.add_child(self_node)
 	self_node.position = Vector2(120, 120)
 	print("down")
+	
 #___________________________________________________________________________________#
 
 func _on_text_box_focus_entered() -> void:
