@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $Sprite2D
 @onready var pause : CanvasLayer = $"../pauseMenu"
+@onready var coyote_timer: Timer = $coyote_timer
+
 var base_scale_x: float
 
 const air_friction := 0.5
 
 var altura_pulo := 170
 var pico_em := 0.5
+
+var can_jump := true
 
 var gravidade
 var fall_gravidade
@@ -32,14 +36,20 @@ func _physics_process(delta: float) -> void:
 		
 	if Globals.podeMover:
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		if Input.is_action_just_pressed("ui_up") and can_jump:
 			velocity.y = -Globals.PULO
 			anim.play("Anim")
+		if is_on_floor() and !can_jump:
+			can_jump = true
+		elif can_jump and coyote_timer.is_stopped():
+			coyote_timer.start()
 		
 		if velocity.y > 0 or not Input.is_action_pressed("ui_up"):
 			velocity.y += fall_gravidade * delta
 		else:
 			velocity.y += gravidade * delta
+			
+
 
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction < 0 and anim.scale.x == base_scale_x:
@@ -79,3 +89,7 @@ func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 
 func _on_button_button_down() -> void:
 	pause.pausar()
+
+
+func _on_coyote_timer_timeout() -> void:
+	can_jump = false
