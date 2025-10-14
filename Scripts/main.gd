@@ -4,6 +4,9 @@ extends Node2D
 @export var golem: CharacterBody2D
 @export var canva: CanvasLayer
 
+@export var sonsTextBox: Array[AudioStream]
+@onready var aud : AudioStreamPlayer = $AudioStreamPlayer
+
 var emCima: bool
 var posiMouse := Vector2.ZERO
 var diferenca : Vector2
@@ -39,6 +42,7 @@ func _process(delta: float) -> void:
 	if emCima and Input.is_action_just_pressed("click"):
 		diferenca = get_global_mouse_position() - global_position
 		podeClick = true
+		playAud(6)
 	
 	if podeClick:
 		if Input.is_action_pressed("click"):
@@ -61,6 +65,8 @@ func _process(delta: float) -> void:
 			particulas.emitting = false
 			tex.modulate = Color(1, 1, 1)
 			particulas.modulate = Color(1, 1, 1)
+			
+			playAud(7)
 
 		posiMouse = get_global_mouse_position()
 		
@@ -69,9 +75,19 @@ func voltar_HUD():
 	old_parent.remove_child(self_node)
 	canva.add_child(self_node)
 	self_node.position = Vector2(120, 120)
+	
+	playAud(4)
 	print("down")
 	
 #___________________________________________________________________________________#
+func playAud(i : int):
+	if i >= 0 and i < sonsTextBox.size():
+		var pitch = randf_range(1, 1.2)
+		aud.stream = sonsTextBox[i]
+		aud.pitch_scale = pitch
+		aud.play()
+	
+
 
 func _on_text_box_focus_entered() -> void:
 	Globals.podeMover = false
@@ -80,6 +96,8 @@ func _on_text_box_focus_entered() -> void:
 	particulas.modulate = Color(0.75, 1, 0.75)
 	
 	golem.esp_effect(true)
+	
+	playAud(5)
 	#print(Globals.podeMover)
 
 func _on_text_box_focus_exited() -> void:
@@ -89,6 +107,8 @@ func _on_text_box_focus_exited() -> void:
 	particulas.modulate = Color(1, 1, 1)
 	
 	golem.esp_effect(false)
+	
+	playAud(4)
 	#print(Globals.podeMover)
 
 func _on_text_box_text_submitted(new_text: String) -> void:
@@ -99,6 +119,8 @@ func _on_text_box_text_submitted(new_text: String) -> void:
 	textBox.release_focus()
 	
 	golem.esp_effect(false)
+	
+	playAud(3)
 	#print(Globals.podeMover)
 	
 	if new_text.strip_edges() != "":
@@ -113,10 +135,15 @@ func _on_text_box_text_changed(new_text: String) -> void:
 	var soNum = RegEx.new()
 	soNum.compile("[0-9]")
 	
+	#var matches := soNum.search_all(new_text)
 	var diff: int = soNum.search_all(new_text).size() - new_text.length()
 	
 	for c_valido in soNum.search_all(new_text):
 		digitos += c_valido.get_string()
+	if diff != 0:
+		playAud(2)
+	else:
+		playAud(1)
 	
 	textBox.set_text(digitos.to_upper())
 	textBox.caret_column = old_caret_column + diff

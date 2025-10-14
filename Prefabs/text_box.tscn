@@ -74,6 +74,9 @@ script = ExtResource("2_sdsba")
 wait_time = 2.0
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
 [connection signal="mouse_entered" from="ColisorTextBox" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ColisorTextBox" to="." method="_on_mouse_exited"]
 [connection signal="focus_entered" from="TextBoxEscrita" to="." method="_on_text_box_focus_entered"]
