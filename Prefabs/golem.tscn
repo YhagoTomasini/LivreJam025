@@ -148,7 +148,7 @@ shape = SubResource("CircleShape2D_lqe5q")
 shape = SubResource("CircleShape2D_31thp")
 
 [node name="coyote_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

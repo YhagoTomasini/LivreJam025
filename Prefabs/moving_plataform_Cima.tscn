@@ -8,6 +8,7 @@ size = Vector2(124, 32)
 
 [node name="moving_plataform" type="Node2D"]
 script = ExtResource("1_jjy2q")
+mov_velocidade = 4.5
 distancia = 256.0
 mov_horizontal = false
 
