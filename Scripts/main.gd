@@ -7,7 +7,9 @@ extends Node2D
 var emCima: bool
 var posiMouse := Vector2.ZERO
 var diferenca : Vector2
+@onready var tex : TextureRect = $ColisorTextBox/TextureRect
 @onready var hitboxText : CollisionPolygon2D = $ColisorTextBox/HitboxTextBox/polygonsahpe2
+@onready var particulas : CPUParticles2D = $CPUParticles2D
 @onready var timerSegs : Timer = $Timer
 
 var semMover: bool
@@ -19,7 +21,11 @@ var old_parent
 func _ready() -> void:
 	self_node = self
 	old_parent = self_node.get_parent()
-		
+	
+	particulas.emitting = false
+	tex.modulate = Color(1, 1, 1)
+	particulas.modulate = Color(1, 1, 1)
+	
 	await get_tree().create_timer(0.1).timeout
 	voltar_HUD()
 	
@@ -41,11 +47,20 @@ func _process(delta: float) -> void:
 				old_parent.add_child(self_node)
 			
 			global_position = get_global_mouse_position() - diferenca
+			
+			particulas.emitting = true
+			tex.modulate = Color(1, 0.75, 0.75)
+			particulas.modulate = Color(1, 0.75, 0.75)
+			
 			hitboxText.disabled = true
 			
 		else:
 			hitboxText.disabled = false
 			podeClick = false
+			
+			particulas.emitting = false
+			tex.modulate = Color(1, 1, 1)
+			particulas.modulate = Color(1, 1, 1)
 
 		posiMouse = get_global_mouse_position()
 		
@@ -60,14 +75,23 @@ func voltar_HUD():
 
 func _on_text_box_focus_entered() -> void:
 	Globals.podeMover = false
+	particulas.emitting = true
+	tex.modulate = Color(0.75, 1, 0.75)
+	particulas.modulate = Color(0.75, 1, 0.75)
 	#print(Globals.podeMover)
 
 func _on_text_box_focus_exited() -> void:
 	Globals.podeMover = true
+	particulas.emitting = false
+	tex.modulate = Color(1, 1, 1)
+	particulas.modulate = Color(1, 1, 1)
 	#print(Globals.podeMover)
 
 func _on_text_box_text_submitted(new_text: String) -> void:
 	Globals.podeMover = true
+	particulas.emitting = false
+	tex.modulate = Color(1, 1, 1)
+	particulas.modulate = Color(1, 1, 1)
 	textBox.release_focus()
 	#print(Globals.podeMover)
 	
@@ -90,6 +114,13 @@ func _on_text_box_text_changed(new_text: String) -> void:
 	
 	textBox.set_text(digitos.to_upper())
 	textBox.caret_column = old_caret_column + diff
+	
+	tex.modulate = Color(01, 01, 01)
+	particulas.modulate = Color(01, 01, 01)
+	await get_tree().create_timer(0.1).timeout
+	particulas.emitting = true
+	tex.modulate = Color(0.75, 1, 0.75)
+	particulas.modulate = Color(0.75, 1, 0.75)
 	
 #___________________________________________________________________________________#
 

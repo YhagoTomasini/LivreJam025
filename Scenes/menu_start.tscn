@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://wnqp5bfctn87"]
+[gd_scene load_steps=6 format=3 uid="uid://wnqp5bfctn87"]
 
 [ext_resource type="Script" uid="uid://c1hrmnngwyqgy" path="res://Scripts/menu_start.gd" id="1_c1nyq"]
 [ext_resource type="Texture2D" uid="uid://cn8g36d3t2t3y" path="res://Images/capa.png" id="2_sko71"]
 [ext_resource type="Theme" uid="uid://critji4ed6r0q" path="res://temas_B/B_Jogar.tres" id="3_kihoa"]
 [ext_resource type="Theme" uid="uid://bkmt88e00mpy4" path="res://temas_B/B_Credits.tres" id="4_sko71"]
+[ext_resource type="PackedScene" uid="uid://gut4jlt6hlbg" path="res://Prefabs/contador_de_fps.tscn" id="5_rv1rd"]
 
 [node name="MenuStart" type="Control"]
 layout_mode = 3
@@ -53,6 +54,8 @@ size_flags_vertical = 3
 theme = ExtResource("4_sko71")
 clip_text = true
 icon_alignment = 1
+
+[node name="Contador De FPS" parent="." instance=ExtResource("5_rv1rd")]
 
 [connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="VBoxContainer/Creditos" to="." method="_on_creditos_button_down"]

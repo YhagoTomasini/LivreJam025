@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://gut4jlt6hlbg"]
+
+[ext_resource type="Script" path="res://Scripts/contador_de_fps.gd" id="1_t5rk2"]
+[ext_resource type="FontFile" uid="uid://ho3ro3y88p3s" path="res://Fonte/Minecraft-Seven_v2.ttf" id="2_hwqjj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1uye"]
+font = ExtResource("2_hwqjj")
+font_color = Color(0.376471, 0.172549, 0.172549, 1)
+outline_size = 32
+outline_color = Color(0.870588, 0.619608, 0.254902, 1)
+
+[node name="Contador De FPS" type="CanvasLayer"]
+script = ExtResource("1_t5rk2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 1
+label_settings = SubResource("LabelSettings_b1uye")
