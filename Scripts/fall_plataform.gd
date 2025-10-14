@@ -12,7 +12,7 @@ extends AnimatableBody2D
 var velocity = Vector2.ZERO
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_trigger = false
-var tempo_para_cair : float = 3
+var tempo_para_cair : float = 1.75
 var  INICIAL_tempo_para_cair : float = 0
 
 func _ready() -> void:

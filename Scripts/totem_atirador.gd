@@ -8,7 +8,7 @@ const TIRO_TOTEM = preload("res://Prefabs/tiro_totem.tscn")
 @onready var colisao: CollisionShape2D = $colisao
 
 # Constante para o tempo de recarga base (Ex: 0.5 segundo)
-const TEMPO_BASE_CD_TIRO := 5 
+const TEMPO_BASE_CD_TIRO := 4
 
 @export var para_direita : bool = true
 
