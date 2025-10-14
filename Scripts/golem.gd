@@ -5,6 +5,10 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $coyote_timer
 @onready var spawn_inicial: Marker2D = $"../spawn_inicial"
 @onready var particulas: CPUParticles2D = $CPUParticles2D
+
+@onready var aud : AudioStreamPlayer = $AudioStreamPlayer
+@export var sonsGolem: Array[AudioStream]
+
 var base_scale_x: float
 
 const air_friction := 0.65
@@ -38,29 +42,31 @@ func _ready() -> void:
 func att_animVelo() -> void:
 	anim.speed_scale = Globals.VELO/100
 	
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:	
 	if not is_on_floor():
-		#velocity += get_gravity() * delta
 		velocity.x = 0
 		
 	if Globals.podeMover:
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_up") and can_jump:
+			playAud(1)
 			velocity.y = -Globals.PULO
 			anim.play("Anim")
+		
+		
 		if is_on_floor() and !can_jump:
+			#playAud(2)
 			can_jump = true
+
 		elif can_jump and coyote_timer.is_stopped():
 			coyote_timer.start()
-		
+			
 		if velocity.y > 0 or not Input.is_action_pressed("ui_up"):
 			velocity.y += fall_gravidade * delta
 		else:
 			velocity.y += gravidade * delta
 			
-
-
+			
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction < 0 and anim.scale.x == base_scale_x:
 			anim.scale.x = -base_scale_x
@@ -76,12 +82,15 @@ func _physics_process(delta: float) -> void:
 			anim.play("Anim")
 		elif abs(velocity.x) > 10:
 			anim.play("Anim")
+			if !aud.playing:
+				playAud(0)
 		else:
 			anim.play("Idle")
 		
 	else:
 		velocity.x = 0
 		anim.play("Idle")
+		aud.stop()
 		
 
 	move_and_slide()
@@ -91,6 +100,16 @@ func _physics_process(delta: float) -> void:
 		if collision_p.get_collider().has_method("colidiu_com_algo"):
 			collision_p.get_collider().colidiu_com_algo(collision_p, self)
 
+func playAud(i : int):
+	if i >= 0 and i < sonsGolem.size():
+		var pitch
+		if i == 0:
+			pitch = randf_range(0.5, 0.7)
+		elif i == 1 or i == 2:
+			pitch = randf_range(0.7, 1)
+		aud.stream = sonsGolem[i]
+		aud.pitch_scale = pitch
+		aud.play()
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("morte"):
