@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var pause : CanvasLayer = $"../pauseMenu"
 @onready var coyote_timer: Timer = $coyote_timer
 @onready var spawn_inicial: Marker2D = $"../spawn_inicial"
-
+@onready var particulas: CPUParticles2D = $CPUParticles2D
 var base_scale_x: float
 
 const air_friction := 0.65
@@ -17,8 +17,17 @@ var can_jump := true
 var gravidade
 var fall_gravidade
 
+func esp_effect(ativar : bool):
+	if ativar:
+		particulas.emitting = true
+		anim.modulate = Color(0.75, 1, 0.75)
+	else:
+		particulas.emitting = false
+		anim.modulate = Color(1, 1, 1)
 
 func _ready() -> void:
+	particulas.emitting = false
+	
 	base_scale_x = anim.scale.x 
 	att_animVelo()
 	

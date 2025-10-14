@@ -78,6 +78,8 @@ func _on_text_box_focus_entered() -> void:
 	particulas.emitting = true
 	tex.modulate = Color(0.75, 1, 0.75)
 	particulas.modulate = Color(0.75, 1, 0.75)
+	
+	golem.esp_effect(true)
 	#print(Globals.podeMover)
 
 func _on_text_box_focus_exited() -> void:
@@ -85,6 +87,8 @@ func _on_text_box_focus_exited() -> void:
 	particulas.emitting = false
 	tex.modulate = Color(1, 1, 1)
 	particulas.modulate = Color(1, 1, 1)
+	
+	golem.esp_effect(false)
 	#print(Globals.podeMover)
 
 func _on_text_box_text_submitted(new_text: String) -> void:
@@ -93,6 +97,8 @@ func _on_text_box_text_submitted(new_text: String) -> void:
 	tex.modulate = Color(1, 1, 1)
 	particulas.modulate = Color(1, 1, 1)
 	textBox.release_focus()
+	
+	golem.esp_effect(false)
 	#print(Globals.podeMover)
 	
 	if new_text.strip_edges() != "":
