@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://rmmk0j81ims4"]
+[gd_scene load_steps=10 format=3 uid="uid://rmmk0j81ims4"]
 
-[ext_resource type="Script" uid="uid://1o682c7yeub7" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="Texture2D" uid="uid://dxajb1x0sv7ub" path="res://Images/b_pausa.png" id="2_bpi0q"]
 [ext_resource type="Theme" uid="uid://duhu5kk14ydj5" path="res://temas_B/B_Menu.tres" id="3_bpi0q"]
 [ext_resource type="Theme" uid="uid://chg4rlbqupy0i" path="res://temas_B/B_Recomecar.tres" id="4_vmyb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpi0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmyb1"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_ur6gg"]
 action = &"ui_focus_next"
@@ -41,6 +45,10 @@ size_flags_vertical = 4
 
 [node name="resume_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bpi0q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmyb1")
 shortcut = SubResource("Shortcut_52pyj")
 icon = ExtResource("2_bpi0q")
 flat = true
