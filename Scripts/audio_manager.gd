@@ -42,7 +42,7 @@ func criar_aud_localizado(local : Vector2, tipo : SoundEffect.TIPO_DE_SOM):
 	else:
 		push_error("n foi o audio", tipo)
 
-func criar_aud(tipo : SoundEffect.TIPO_DE_SOM):
+func criar_aud(tipo : SoundEffect.TIPO_DE_SOM, p_var):
 	if registroSons.has(tipo):
 		var som : SoundEffect = registroSons[tipo]
 		if som.tem_limite():
@@ -53,7 +53,7 @@ func criar_aud(tipo : SoundEffect.TIPO_DE_SOM):
 			novo_aud.bus = som.bus
 			novo_aud.stream = som.som
 			novo_aud.volume_db = som.volume
-			novo_aud.pitch_scale = som.pitch
+			novo_aud.pitch_scale = som.pitch * p_var
 			novo_aud.pitch_scale += randf_range(-som.pitch_rand, som.pitch_rand)
 			
 			novo_aud.finished.connect(som.quando_som_acabar)

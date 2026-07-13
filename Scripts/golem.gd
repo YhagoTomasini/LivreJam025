@@ -104,6 +104,7 @@ func _physics_process(delta: float) -> void:
 func _set_state():
 	var state = "Idle"
 	var efeitoSom = null
+	var p_var = 1
 	
 	if !is_on_floor():
 		AudioManager.destruir_novo_aud(SoundEffect.TIPO_DE_SOM.ANDAR)
@@ -111,17 +112,20 @@ func _set_state():
 			state = "Anim"
 		if velocity.y < 0:
 			efeitoSom = SoundEffect.TIPO_DE_SOM.PULAR
+			p_var = 1
 	else:
 		if velocity.x != 0:
 			state = "Anim"
 			efeitoSom = SoundEffect.TIPO_DE_SOM.ANDAR
+			p_var = remap(clamp(Globals.VELO, 0.0, 1200.0), 0.0, 1200.0, 0.5, 2.0)
 		else:
 			AudioManager.destruir_novo_aud(SoundEffect.TIPO_DE_SOM.ANDAR)
 			
 	if anim.name != state:
 		anim.play(state)
 		if efeitoSom != null:
-			AudioManager.criar_aud(efeitoSom)
+			
+			AudioManager.criar_aud(efeitoSom, p_var)
 	
 #func playAud(i : int):
 	#if i >= 0 and i < sonsGolem.size():
