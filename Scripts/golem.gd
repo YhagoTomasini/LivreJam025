@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var spawn_inicial: Marker2D = $"../spawn_inicial"
 @onready var particulas: CPUParticles2D = $CPUParticles2D
 
-@onready var aud : AudioStreamPlayer = $AudioStreamPlayer
-@export var sonsGolem: Array[AudioStream]
+#@onready var aud : AudioStreamPlayer = $AudioStreamPlayer
+#@export var sonsGolem: Array[AudioStream]
 
 var base_scale_x: float
 
@@ -49,9 +49,9 @@ func _physics_process(delta: float) -> void:
 	if Globals.podeMover:
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_up") and can_jump:
-			playAud(1)
+			#playAud(1)
 			velocity.y = -Globals.PULO
-			anim.play("Anim")
+			#anim.play("Anim")
 		
 		
 		if is_on_floor() and !can_jump:
@@ -78,21 +78,21 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, Globals.VELO)
 		
-		if not is_on_floor():
-			anim.play("Anim")
-		elif abs(velocity.x) > 10:
-			anim.play("Anim")
-			if !aud.playing:
-				playAud(0)
-		else:
-			anim.play("Idle")
-		
-	else:
-		velocity.x = 0
-		anim.play("Idle")
-		aud.stop()
-		
-
+		#if not is_on_floor():
+			##anim.play("Anim")
+		#elif abs(velocity.x) > 10:
+			#anim.play("Anim")
+			##if !aud.playing:
+				##playAud(0)
+		#else:
+			#anim.play("Idle")
+		#
+	#else:
+		#velocity.x = 0
+		#anim.play("Idle")
+		##aud.stop()
+	
+	_set_state()
 	move_and_slide()
 	
 	for plataforms in get_slide_collision_count():
@@ -100,16 +100,39 @@ func _physics_process(delta: float) -> void:
 		if collision_p.get_collider().has_method("colidiu_com_algo"):
 			collision_p.get_collider().colidiu_com_algo(collision_p, self)
 
-func playAud(i : int):
-	if i >= 0 and i < sonsGolem.size():
-		var pitch
-		if i == 0:
-			pitch = randf_range(0.5, 0.7)
-		elif i == 1 or i == 2:
-			pitch = randf_range(0.7, 1)
-		aud.stream = sonsGolem[i]
-		aud.pitch_scale = pitch
-		aud.play()
+
+func _set_state():
+	var state = "Idle"
+	var efeitoSom = null
+	
+	if !is_on_floor():
+		AudioManager.destruir_novo_aud(SoundEffect.TIPO_DE_SOM.ANDAR)
+		if velocity.x != 0:
+			state = "Anim"
+		if velocity.y < 0:
+			efeitoSom = SoundEffect.TIPO_DE_SOM.PULAR
+	else:
+		if velocity.x != 0:
+			state = "Anim"
+			efeitoSom = SoundEffect.TIPO_DE_SOM.ANDAR
+		else:
+			AudioManager.destruir_novo_aud(SoundEffect.TIPO_DE_SOM.ANDAR)
+			
+	if anim.name != state:
+		anim.play(state)
+		if efeitoSom != null:
+			AudioManager.criar_aud(efeitoSom)
+	
+#func playAud(i : int):
+	#if i >= 0 and i < sonsGolem.size():
+		#var pitch
+		#if i == 0:
+			#pitch = randf_range(0.5, 0.7)
+		#elif i == 1 or i == 2:
+			#pitch = randf_range(0.7, 1)
+		#aud.stream = sonsGolem[i]
+		#aud.pitch_scale = pitch
+		#aud.play()
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("morte"):

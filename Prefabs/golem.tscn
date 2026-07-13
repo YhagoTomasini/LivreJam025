@@ -1,11 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0xvsyyppr2be"]
+[gd_scene load_steps=22 format=3 uid="uid://b0xvsyyppr2be"]
 
 [ext_resource type="Script" uid="uid://cd342cd4cd725" path="res://Scripts/golem.gd" id="1_bs7yq"]
-[ext_resource type="AudioStream" uid="uid://bmqa3qxx1gfn8" path="res://sons/andandinho.wav" id="2_2enja"]
 [ext_resource type="Texture2D" uid="uid://bvbicj6w3kekr" path="res://Images/Golem.png" id="2_mujqu"]
-[ext_resource type="AudioStream" uid="uid://lwqp5td6m5vh" path="res://sons/pulo.wav" id="3_ok5fh"]
 [ext_resource type="Texture2D" uid="uid://c57l4sm14akeh" path="res://Images/GolemIDLE.png" id="3_syu0y"]
-[ext_resource type="AudioStream" uid="uid://csmd1tlq3sten" path="res://sons/queda.wav" id="4_ehped"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syu0y"]
 atlas = ExtResource("2_mujqu")
@@ -135,7 +132,6 @@ radius = 30.0666
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_bs7yq")
-sonsGolem = Array[AudioStream]([ExtResource("2_2enja"), ExtResource("3_ok5fh"), ExtResource("4_ehped")])
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 lifetime = 0.6
@@ -154,7 +150,6 @@ scale_amount_max = 6.0
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_omtfu")
 animation = &"Idle"
-frame_progress = 0.0194508
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lqe5q")

@@ -1,0 +1,135 @@
+[gd_scene load_steps=30 format=3 uid="uid://52fnmsciylfu"]
+
+[ext_resource type="Script" uid="uid://du81qftxw80gf" path="res://Scripts/audio_manager.gd" id="1_203tp"]
+[ext_resource type="Script" uid="uid://c8tdywtj1cj4u" path="res://SoundEffect.gd" id="2_tqins"]
+[ext_resource type="AudioStream" uid="uid://bmqa3qxx1gfn8" path="res://sons/andandinho.wav" id="3_hmsfd"]
+[ext_resource type="AudioStream" uid="uid://lwqp5td6m5vh" path="res://sons/pulo.wav" id="4_737te"]
+[ext_resource type="AudioStream" uid="uid://cclf4f70673qa" path="res://sons/focuson.wav" id="5_x4p8m"]
+[ext_resource type="AudioStream" uid="uid://cxijm4stgyl2b" path="res://sons/focusoff.wav" id="6_c4ql3"]
+[ext_resource type="AudioStream" uid="uid://dhlni7tcq5q41" path="res://sons/grab.wav" id="7_oujgt"]
+[ext_resource type="AudioStream" uid="uid://csmd1tlq3sten" path="res://sons/queda.wav" id="8_xsx37"]
+[ext_resource type="AudioStream" uid="uid://b1nsqxhwssttk" path="res://sons/digitar.wav" id="9_rid6w"]
+[ext_resource type="AudioStream" uid="uid://cnfpcx08ari22" path="res://sons/digitarerro.wav" id="10_hbneq"]
+[ext_resource type="AudioStream" uid="uid://bbbiyrpb5y20f" path="res://sons/enter.wav" id="11_unuje"]
+[ext_resource type="AudioStream" uid="uid://bp575pxng5s1l" path="res://sons/brabuleta.wav" id="12_yls3m"]
+[ext_resource type="AudioStream" uid="uid://bdg725hilcb8p" path="res://sons/tiro.wav" id="13_tg1n5"]
+[ext_resource type="AudioStream" uid="uid://bimhysn840h33" path="res://sons/tiroQuebra.wav" id="14_grj7j"]
+
+[sub_resource type="Resource" id="Resource_ga8lj"]
+script = ExtResource("2_tqins")
+limite = 1
+bus = &"Musica"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_rgjcj"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 1
+bus = &"Musica"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_y6pob"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 2
+som = ExtResource("3_hmsfd")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_o5ndk"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 3
+som = ExtResource("4_737te")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_ifnvy"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 4
+som = ExtResource("5_x4p8m")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_2aujd"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 5
+som = ExtResource("6_c4ql3")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_y3e0w"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 6
+som = ExtResource("7_oujgt")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_x2y14"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 7
+som = ExtResource("8_xsx37")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_t7tli"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 8
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_fg6e6"]
+script = ExtResource("2_tqins")
+limite = 3
+tipo = 9
+som = ExtResource("9_rid6w")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_46cbi"]
+script = ExtResource("2_tqins")
+limite = 3
+tipo = 10
+som = ExtResource("10_hbneq")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_f2kp7"]
+script = ExtResource("2_tqins")
+limite = 1
+tipo = 11
+som = ExtResource("11_unuje")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_tytis"]
+script = ExtResource("2_tqins")
+limite = 3
+tipo = 12
+som = ExtResource("12_yls3m")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_eqrmk"]
+script = ExtResource("2_tqins")
+tipo = 13
+som = ExtResource("13_tg1n5")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[sub_resource type="Resource" id="Resource_u7xae"]
+script = ExtResource("2_tqins")
+limite = 3
+tipo = 14
+som = ExtResource("14_grj7j")
+bus = &"Efeitos"
+metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_203tp")
+sons = Array[ExtResource("2_tqins")]([SubResource("Resource_ga8lj"), SubResource("Resource_rgjcj"), SubResource("Resource_y6pob"), SubResource("Resource_o5ndk"), SubResource("Resource_ifnvy"), SubResource("Resource_2aujd"), SubResource("Resource_y3e0w"), SubResource("Resource_x2y14"), SubResource("Resource_t7tli"), SubResource("Resource_fg6e6"), SubResource("Resource_46cbi"), SubResource("Resource_f2kp7"), SubResource("Resource_tytis"), SubResource("Resource_eqrmk"), SubResource("Resource_u7xae")])
