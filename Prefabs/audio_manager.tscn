@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://52fnmsciylfu"]
+[gd_scene load_steps=31 format=3 uid="uid://52fnmsciylfu"]
 
 [ext_resource type="Script" uid="uid://du81qftxw80gf" path="res://Scripts/audio_manager.gd" id="1_203tp"]
 [ext_resource type="Script" uid="uid://c8tdywtj1cj4u" path="res://SoundEffect.gd" id="2_tqins"]
+[ext_resource type="AudioStream" uid="uid://d3lak1ht20l1c" path="res://sons/Baião-Temperado-_Instrumental_.wav" id="3_737te"]
 [ext_resource type="AudioStream" uid="uid://bmqa3qxx1gfn8" path="res://sons/andandinho.wav" id="3_hmsfd"]
 [ext_resource type="AudioStream" uid="uid://lwqp5td6m5vh" path="res://sons/pulo.wav" id="4_737te"]
 [ext_resource type="AudioStream" uid="uid://cclf4f70673qa" path="res://sons/focuson.wav" id="5_x4p8m"]
@@ -18,6 +19,7 @@
 [sub_resource type="Resource" id="Resource_ga8lj"]
 script = ExtResource("2_tqins")
 limite = 1
+som = ExtResource("3_737te")
 bus = &"Musica"
 metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
 
@@ -131,5 +133,6 @@ bus = &"Efeitos"
 metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
 
 [node name="AudioManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_203tp")
 sons = Array[ExtResource("2_tqins")]([SubResource("Resource_ga8lj"), SubResource("Resource_rgjcj"), SubResource("Resource_y6pob"), SubResource("Resource_o5ndk"), SubResource("Resource_ifnvy"), SubResource("Resource_2aujd"), SubResource("Resource_y3e0w"), SubResource("Resource_x2y14"), SubResource("Resource_t7tli"), SubResource("Resource_fg6e6"), SubResource("Resource_46cbi"), SubResource("Resource_f2kp7"), SubResource("Resource_tytis"), SubResource("Resource_eqrmk"), SubResource("Resource_u7xae")])

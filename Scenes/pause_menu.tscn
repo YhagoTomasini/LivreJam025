@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://rmmk0j81ims4"]
 
-[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="Script" uid="uid://1o682c7yeub7" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="Texture2D" uid="uid://dxajb1x0sv7ub" path="res://Images/b_pausa.png" id="2_bpi0q"]
 [ext_resource type="Theme" uid="uid://duhu5kk14ydj5" path="res://temas_B/B_Menu.tres" id="3_bpi0q"]
 [ext_resource type="Theme" uid="uid://chg4rlbqupy0i" path="res://temas_B/B_Recomecar.tres" id="4_vmyb1"]
@@ -17,9 +17,10 @@ events = [SubResource("InputEventAction_ur6gg")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ur6gg"]
 
-[node name="pauseMenu" type="CanvasLayer"]
+[node name="pauseMenu" type="CanvasLayer" node_paths=PackedStringArray("volume")]
 process_mode = 3
 script = ExtResource("1_emv3i")
+volume = NodePath("")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -58,12 +59,12 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ur6gg")
 
-[node name="bm_btn" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(224, 120)
+[node name="audio" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(412, 120)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_bpi0q")
-icon_alignment = 1
+theme = ExtResource("4_vmyb1")
+text = "Audio"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -75,6 +76,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_vmyb1")
 
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ur6gg")
+
+[node name="bm_btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(224, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_bpi0q")
+icon_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="VBoxContainer/reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/bm_btn" to="." method="_on_bm_btn_pressed"]
-[connection signal="button_down" from="VBoxContainer/reiniciar" to="." method="_on_reiniciar_button_down"]

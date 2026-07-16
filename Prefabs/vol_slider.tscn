@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctjkwf53bw4n7"]
+
+[ext_resource type="Script" uid="uid://d22tqjfcgan4v" path="res://Scripts/vol_slider.gd" id="1_101ls"]
+
+[node name="Vol_slider" type="HSlider"]
+process_mode = 3
+max_value = 1.0
+step = 0.1
+script = ExtResource("1_101ls")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

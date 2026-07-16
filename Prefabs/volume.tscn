@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://6yguhm7ghdxu"]
+[gd_scene load_steps=3 format=3 uid="uid://6yguhm7ghdxu"]
 
-[node name="Volume" type="CanvasLayer"]
+[ext_resource type="Script" uid="uid://dm4kmthikj4un" path="res://Scripts/volume.gd" id="1_bq3vw"]
+[ext_resource type="PackedScene" uid="uid://ctjkwf53bw4n7" path="res://Prefabs/vol_slider.tscn" id="2_wi6rk"]
+
+[node name="Volume" type="CanvasLayer" node_paths=PackedStringArray("voltarB")]
+script = ExtResource("1_bq3vw")
+voltarB = NodePath("VBoxContainer/Button")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -15,12 +20,17 @@ offset_bottom = 76.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "VOltar"
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Volume"
 
-[node name="Volume" type="HSlider" parent="VBoxContainer"]
+[node name="Vol_slider" parent="VBoxContainer" instance=ExtResource("2_wi6rk")]
 layout_mode = 2
+nomeBus = "Master"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -30,16 +40,21 @@ layout_mode = 2
 layout_mode = 2
 text = "Música"
 
-[node name="Musica" type="HSlider" parent="VBoxContainer"]
+[node name="Vol_slider2" parent="VBoxContainer" instance=ExtResource("2_wi6rk")]
+layout_mode = 2
+nomeBus = "Musica"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Efeitos sonoros"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="Vol_slider3" parent="VBoxContainer" instance=ExtResource("2_wi6rk")]
+process_mode = 3
 layout_mode = 2
+nomeBus = "Efeitos"
 
-[node name="Efeitos" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
