@@ -48,23 +48,22 @@ func colidiu_com_algo(collision: KinematicCollision2D, collider: CharacterBody2D
 
 
 func _on_respawn_timer_timeout() -> void:
-
 	set_physics_process(false)
 
 	global_position = posicao_do_spawn
 
 	if is_trigger:
-
 		var spawn_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
 
 		spawn_tween.tween_property($Sprites,"scale", Vector2(1,1), 0.2).from(Vector2(0,0))
+		
+		AudioManager.criar_aud_localizado(posicao_do_spawn, SoundEffect.TIPO_DE_SOM.FOCUS_ON)
 
 		is_trigger = false
 
-
-
 func caiu():
-
+	AudioManager.criar_aud_localizado(global_position, SoundEffect.TIPO_DE_SOM.FOCUS_OFF)
+	
 	set_physics_process(true)
 
 	respawn_timer.start(reset_timer)

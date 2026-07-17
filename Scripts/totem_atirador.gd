@@ -75,7 +75,7 @@ func spawn_tiro():
 		novo_tiro.qual_direcao(-1)
 	add_sibling(novo_tiro)
 	novo_tiro.global_position = spawn_do_tiro.global_position
-
+	AudioManager.criar_aud_localizado(global_position, SoundEffect.TIPO_DE_SOM.TIRO)
 
 
 func _on_cd_tiro_timeout() -> void:

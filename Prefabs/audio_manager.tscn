@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://52fnmsciylfu"]
+[gd_scene load_steps=32 format=3 uid="uid://52fnmsciylfu"]
 
 [ext_resource type="Script" uid="uid://du81qftxw80gf" path="res://Scripts/audio_manager.gd" id="1_203tp"]
 [ext_resource type="Script" uid="uid://c8tdywtj1cj4u" path="res://SoundEffect.gd" id="2_tqins"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://csmd1tlq3sten" path="res://sons/queda.wav" id="8_xsx37"]
 [ext_resource type="AudioStream" uid="uid://b1nsqxhwssttk" path="res://sons/digitar.wav" id="9_rid6w"]
 [ext_resource type="AudioStream" uid="uid://cnfpcx08ari22" path="res://sons/digitarerro.wav" id="10_hbneq"]
+[ext_resource type="AudioStream" uid="uid://cb8v83n3g1qag" path="res://sons/release.wav" id="10_x4p8m"]
 [ext_resource type="AudioStream" uid="uid://bbbiyrpb5y20f" path="res://sons/enter.wav" id="11_unuje"]
 [ext_resource type="AudioStream" uid="uid://bp575pxng5s1l" path="res://sons/brabuleta.wav" id="12_yls3m"]
 [ext_resource type="AudioStream" uid="uid://bdg725hilcb8p" path="res://sons/tiro.wav" id="13_tg1n5"]
@@ -82,6 +83,7 @@ metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
 script = ExtResource("2_tqins")
 limite = 1
 tipo = 8
+som = ExtResource("10_x4p8m")
 bus = &"Efeitos"
 metadata/_custom_type_script = "uid://c8tdywtj1cj4u"
 

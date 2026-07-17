@@ -15,4 +15,5 @@ func actived_checkpoint():
 	print("pegou2")
 	Globals.current_checkpoint = self
 	is_active = true 
+	AudioManager.criar_aud(SoundEffect.TIPO_DE_SOM.FOCUS_ON, 1)
 	
